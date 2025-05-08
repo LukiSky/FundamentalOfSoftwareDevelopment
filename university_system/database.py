@@ -4,7 +4,7 @@ import os
 from university_system.util.util import *
 
 class Database:
-    DATA_FILE = "university_system/data/student.data"
+    DATA_FILE = "university_system/data/students.data"
     @staticmethod
     def load_data():
         if not os.path.exists(Database.DATA_FILE):

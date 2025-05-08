@@ -57,6 +57,9 @@ def start_enrollment_window(student_id):
     
     ttk.Button(root, text="Enroll Subject", command=lambda: enrollNewSubject(student_id)).pack(pady=10)
 
+    ttk.Button(root, text="Show Subjects", command=lambda: enrollNewSubject(student_id)).pack(pady=10)
+
+
     root.mainloop()
 
 # Optional for standalone testing
