@@ -4,7 +4,7 @@ import os
 import random
 import re
 
-DATA_FILE = "student.data"
+DATA_FILE = "student.datfdfdsa"
 
 class User(ABC):
     @abstractmethod
