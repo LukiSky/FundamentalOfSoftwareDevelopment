@@ -1,124 +1,92 @@
+import random
+from university_system.controllers.subject_controller import SubjectController
+from university_system.controllers.user_controller import UserController
+from university_system.database import Database
+from university_system.models.student import Student
 
-from database import Database
-# from university import University
-from models.subject import Subject
-from util.util import *
 
+from university_system.util.util import *
 
-class SubjectController():
-    def __init__(self, student_id):
-        self.student_id = student_id
-        self.subjects = self.load_subjects()
-    
-    def load_subjects(self):
-        subject_dicts = Database.load_subjects(self.student_id)
-        subjects = []
-        for data in subject_dicts:
-            subject = Subject()
-            subject.id = data["id"]
-            subject.mark = data["mark"]
-            subject.grade = data["grade"]
-            subjects.append(subject)
-        return subjects
-    
+class StudentController(UserController):
+    def __init__(self):
+        self.students = []
+        self.load_students()
+
+    def load_students(self):
+        self.students = Database.load_data()
+    def save_student(self, student):
+        self.students.append(student)
+        Database.save_data(self.students)
+        self.load_students() 
     def menu(self):
         while True:
-            choice = input(f"{emptySpace}Student Course Menu (c/e/r/s/x): ").lower()
+            choice = input(f"{emptySpace}Student System (l/r/x): ").lower()
             match choice:
-                case "c":
-                    print(f"{emptySpace}Updating Password")
-                    self.changePassword()
-                case "e":
-                    self.enroll_subject()
+                case "l":
+                    print(f"{emptySpace}Student Sign In")
+                    self.login()
                 case "r":
-                    self.remove_subject()
-                case "s":
-                    self.display_subjects()
+                    print(f"{emptySpace}Student Sign Up")
+                    self.register()
                 case "x":
                     break
                 case _:
-                    print(f"{emptySpace}Error: please either input c, e, r, s, or x")
+                    print(f"{emptySpace}Error: please either input l, r, or x")
+    def login(self):
+        while True:
+            email = input(f"{emptySpace}Email: ")
+            password = input(f"{emptySpace}Password: ")
 
-    
-    def changePassword(self):
-        newPassword = input(f"{emptySpace}New password: ")
-        university = University()
-        while not university.is_valid_password(newPassword):
-            print(f"{emptySpace}Invalid password. Try again.")
-            newPassword = input(f"{emptySpace}New password: ")
+            for student in self.students:
+                if student["email"] == email and student["password"] == password:
+                    print(f"{emptySpace}Welcome, {student['name']}!")
+                    subject_controller = SubjectController(student["id"])
+                    subject_controller.menu()
+                    return
+            print("   Student does not exist")
+            break
 
-        confirmPassword = input(f"{emptySpace}Confirm password: ")
-        while(newPassword != confirmPassword):
-            print("Password does not match - try again")
-            confirmPassword = input(f"{emptySpace}Confirm password: ")
-        students = Database.load_data()
-    
-        for student in students:
-            if student["id"] == self.student_id:
-                student["password"] = newPassword
-                break
-        Database.save_data(students)
-    
-    def enroll_subjectGUI(self):
-        if len(self.subjects) >= 4:
+    def loginGUI(self, email, password):
+        while True:
+            for student in self.students:
+                if student["email"] == email and student["password"] == password:
+                    print(f"{emptySpace}Welcome, {student['name']}!")              
+                    return student["id"]
             return False
-        print(self.subjects)
-        new_subject = Subject()
-        existing_ids = {s.id for s in self.subjects}
-
-        while new_subject.id in existing_ids:
-            new_subject = Subject()
-
-        self.subjects.append(new_subject)
-        self.save_subjects()
-
-
-        return [new_subject]
-        
+            break
     
+    def checkPasswordEmailFormat(self, password, email):
+        from university_system.university import University
+        university = University()
+      
+        boolPassword = university.is_valid_password(password)
+        boolEmail = university.is_valid_email(email)
 
-    def enroll_subject(self):
-        if len(self.subjects) >= 4:
-            print("Students are allowed to enroll in 4 subjects only.")
+        if(boolPassword == True and boolEmail == True):
+            return True
+        else:
+            return False
+
+    def register(self):
+        email = input(" Email: ")
+        password = input("  Password: ")
+
+        if not self.checkPasswordEmailFormat(password, email):
+            print("   Incorrect email or password format")
             return
 
-        new_subject = Subject()
-        existing_ids = {s.id for s in self.subjects}
-
-        while new_subject.id in existing_ids:
-            new_subject = Subject()
-
-        self.subjects.append(new_subject)
-        self.save_subjects()
-        print(f"{emptySpace}Subject {new_subject.id} enrolled successfully!")
-        print(f"{emptySpace}Mark: {new_subject.mark}, Grade: {new_subject.grade}")
-        print(f"{emptySpace}Total Enrolled Subjects: {len(self.subjects)}")
-
-    def remove_subject(self):
-        if not self.subjects:
-            print("No subjects enrolled to remove.")
-            return
-
-        subject_id = input("Enter Subject ID to remove: ")
-        for subject in self.subjects:
-            if subject.id == subject_id:
-                self.subjects.remove(subject)
-                self.save_subjects()
-                print(f"{emptySpace}Subject {subject_id} removed successfully!")
+        for student in self.students:
+            if student["email"] == email:
+                print(f"   Student {student['name']} already exists.")
                 return
 
-        print(f"{emptySpace}Subject ID {subject_id} not found.")
+        name = input("  Name: ")
+        existing_ids = {student["id"] for student in self.students}
 
-    def display_subjects(self):
-        if not self.subjects:
-            print("No subjects enrolled.")
-            return
-
-        print(f"{emptySpace}Enrolled Subjects:")
-        for subject in self.subjects:
-            print(f"ID: {subject.id}, Mark: {subject.mark}, Grade: {subject.grade}")
-
-    def save_subjects(self):
-        subject_dicts = [s.get_subject_json() for s in self.subjects]
-        Database.save_subjects(self.student_id, subject_dicts)
-
+        while True:
+            new_id = f"{random.randint(1, 999999):06d}"
+            if new_id not in existing_ids:
+                print(f"    Enrolling Student {name}")
+                new_student = Student(name, email, password, new_id)
+                self.save_student(new_student.get_student_json())
+                return

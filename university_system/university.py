@@ -1,7 +1,9 @@
 import re
 
-from university_system.controllers import admin_controller, student_controller
-from util.util import *
+from university_system.controllers.admin_controller import AdminController
+
+from university_system.controllers.student_controller import StudentController
+from university_system.util.util import *
 
 
 class University:
@@ -10,10 +12,10 @@ class University:
             choice = input("University System: (A)dmin, (S)tudent, or X: ").lower()
             match choice:
                 case "a":
-                    admin = admin_controller()
+                    admin = AdminController()
                     admin.menu()
                 case "s":
-                    student = student_controller()
+                    student = StudentController()
                     student.menu()
                 case "x":
                     print("Thank You")

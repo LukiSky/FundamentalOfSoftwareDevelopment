@@ -1,6 +1,8 @@
-from database import Database
-# from university import University
-from util.util import *
+
+from university_system.database import Database
+
+
+from university_system.util.util import *
 
 class Admin:
 
@@ -24,6 +26,7 @@ class Admin:
         else:
             print("Operation cancelled — input must be 'Y' or 'N' only.")
     def getGrade(self, student):
+        from university_system.university import University
         subjects = student.get("subjects", [])
         marks = [sub.get("mark", 0) for sub in subjects]
         avg = sum(marks) / len(marks) if marks else 0

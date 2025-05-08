@@ -1,11 +1,9 @@
-from database import Database
-from models.admin import Admin
-from util.util import *
-
-from controllers.user_controller import UserController
 
 
-
+from university_system.controllers.user_controller import UserController
+from university_system.database import Database
+from university_system.models.admin import Admin
+from university_system.util.util import *
 
 class AdminController(UserController):
     def __init__(self):

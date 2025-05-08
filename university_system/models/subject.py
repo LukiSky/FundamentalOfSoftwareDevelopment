@@ -1,5 +1,5 @@
 import random
-from util.util import *
+from university_system.util.util import *
 
 class Subject:
     def __init__(self):

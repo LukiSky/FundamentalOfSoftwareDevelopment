@@ -1,8 +1,7 @@
-from database import Database
-# from university import University
-from util.util import *
+from university_system.database import Database
+from university_system.models.subject import Subject
+from university_system.util.util import *
 
-from models.subject import Subject
 
 class SubjectController():
     def __init__(self, student_id):
@@ -40,6 +39,7 @@ class SubjectController():
 
     
     def changePassword(self):
+        from university_system.university import University
         newPassword = input(f"{emptySpace}New password: ")
         university = University()
         while not university.is_valid_password(newPassword):

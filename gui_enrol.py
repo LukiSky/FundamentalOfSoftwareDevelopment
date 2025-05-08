@@ -2,10 +2,12 @@
 import tkinter as tk
 from tkinter import Listbox, ttk, messagebox
 
+from university_system.controllers.subject_controller import SubjectController
+
 
 
 def enrollNewSubject(student_id):
-    subject_controller = subject_controller(str(student_id))
+    subject_controller = SubjectController(str(student_id))
     
     mySubjects = subject_controller.enroll_subjectGUI()
 
@@ -37,7 +39,7 @@ def start_enrollment_window(student_id):
     window_height = int(screen_height * 0.8) 
 
     root.geometry(f"{window_width}x{window_height}")
-    subject_controller = subject_controller(str(student_id))
+    subject_controller = SubjectController(str(student_id))
     listbox = Listbox(root,
                   bg="white",
                   font=("constantia",35),

@@ -1,10 +1,10 @@
 import json
 import os
 
-from util.util import *
+from university_system.util.util import *
 
 class Database:
-    DATA_FILE = "data/students.data"
+    DATA_FILE = "university_system/data/student.data"
     @staticmethod
     def load_data():
         if not os.path.exists(Database.DATA_FILE):

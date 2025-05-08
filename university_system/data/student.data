@@ -1,0 +1,26 @@
+[
+    {
+        "id": "238935",
+        "name": "Tester",
+        "email": "Tester@university.com",
+        "password": "Tester123",
+        "subjects": [
+            {
+                "id": "374",
+                "mark": 99,
+                "grade": "HD"
+            },
+            {
+                "id": "230",
+                "mark": 59,
+                "grade": "P"
+            }
+        ]
+    },
+    {
+        "id": "538243",
+        "name": "Horusa",
+        "email": "Horusa@university.com",
+        "password": "Horusa123"
+    }
+]

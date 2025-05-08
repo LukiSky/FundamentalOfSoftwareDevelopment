@@ -4,8 +4,10 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 
 
+
 from gui_enrol import start_enrollment_window
-from controllers import student_controller
+from university_system.controllers.student_controller import StudentController
+
 root = tk.Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
@@ -43,7 +45,7 @@ passwordField.grid(column=1, row=1, padx=5, pady= 5)
 cancelBtn = tk.Button(box, text="Cancel")
 cancelBtn.grid(column=1, row=3, sticky=tk.W, padx=30, pady=5)
 
-student = student_controller()
+student = StudentController()
 
 
 def myLogin():
