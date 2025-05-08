@@ -1,6 +1,6 @@
 
 from database import Database
-from University import University
+from university import University
 from util.util import *
 
 from models import Subject
