@@ -1,6 +1,4 @@
-
-
-from university import University
+from University import University
 
 
 if __name__ == '__main__':

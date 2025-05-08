@@ -2,8 +2,6 @@
 import tkinter as tk
 from tkinter import Listbox, ttk, messagebox
 
-from controllers import subject_controller
-
 
 
 def enrollNewSubject(student_id):

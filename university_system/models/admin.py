@@ -1,5 +1,5 @@
 from database import Database
-from university import University
+# from university import University
 from util.util import *
 
 class Admin:

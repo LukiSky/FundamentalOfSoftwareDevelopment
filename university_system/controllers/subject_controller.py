@@ -1,8 +1,8 @@
 from database import Database
-from university import University
+# from university import University
 from util.util import *
 
-from models import Subject
+from models.subject import Subject
 
 class SubjectController():
     def __init__(self, student_id):

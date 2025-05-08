@@ -1,9 +1,10 @@
 from database import Database
+from models.admin import Admin
 from util.util import *
 
 from controllers.user_controller import UserController
 
-from models import Admin
+
 
 
 class AdminController(UserController):
