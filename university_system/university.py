@@ -1,6 +1,6 @@
 import re
 
-from controllers import admin_controller, student_controller
+from university_system.controllers import admin_controller, student_controller
 from util.util import *
 
 
