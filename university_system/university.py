@@ -7,21 +7,25 @@ from university_system.util.util import *
 
 
 class University:
+    def __init__(self):
+        self.admin = AdminController()
+        self.student = StudentController()
+        self.menu()
+
     def menu(self):
         while True:
             choice = input("University System: (A)dmin, (S)tudent, or X: ").lower()
             match choice:
                 case "a":
-                    admin = AdminController()
-                    admin.menu()
+                    self.admin.menu()
                 case "s":
-                    student = StudentController()
-                    student.menu()
+                    self.student.menu()
                 case "x":
                     print("Thank You")
                     break
                 case _:
                     print("Error: please either input A, S, or X")
+
 
     def is_valid_password(self, password):
         first_upper = password[0].isupper()

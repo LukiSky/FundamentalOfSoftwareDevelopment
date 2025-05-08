@@ -54,7 +54,7 @@ def myLogin():
     studentId = student.loginGUI(email, password)
 
     if studentId:
-        mb.showinfo("Login Successful", "Correct email and password")
+        # mb.showinfo("Login Successful", "Correct email and password")
         root.destroy()  # Close login window
         start_enrollment_window(studentId)  # ✅ Pass the student ID
     else:
