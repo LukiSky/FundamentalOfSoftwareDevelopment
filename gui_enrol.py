@@ -1,67 +1,50 @@
-# GUI_Enroll.py
 import tkinter as tk
-from tkinter import Listbox, ttk, messagebox
-
+from tkinter import ttk, messagebox
 from university_system.controllers.subject_controller import SubjectController
 
 
-
-def enrollNewSubject(student_id):
-    subject_controller = SubjectController(str(student_id))
-    
-    mySubjects = subject_controller.enroll_subjectGUI()
-
-    if mySubjects:
-        new_subject = mySubjects[0]
-        total_enrolled = len(subject_controller.load_subjects())
-        message = (
-            f"Subject {new_subject.id} enrolled successfully!\n"
-            f"Mark: {new_subject.mark}, Grade: {new_subject.grade}\n"
-            f"Total Enrolled Subjects: {total_enrolled}"
-        )
-        messagebox.showinfo("Enrollment Successful", message)
-
-        for s in subject_controller.load_subjects():
-            print(f"ID: {s.id}, Mark: {s.mark}, Grade: {s.grade}")
-
-        return new_subject.id, new_subject.mark, new_subject.grade
-    else:
-        messagebox.showerror("Enrollment Error", "Students are allowed to enroll in 4 subjects only.")
-        return None
-
 def start_enrollment_window(student_id):
     root = tk.Tk()
-    root.title("Main App (Test Harness)")
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
+    root.title("Student Enrolment")
+    root.state('zoomed')
 
-    window_width = int(screen_width * 0.5)  
-    window_height = int(screen_height * 0.8) 
-
-    root.geometry(f"{window_width}x{window_height}")
     subject_controller = SubjectController(str(student_id))
-    listbox = Listbox(root,
-                  bg="white",
-                  font=("constantia",35),
-                  width=12)
-    listbox.pack()
 
-    for s in subject_controller.load_subjects():
-        print(s)
-        listbox.insert(listbox.size(),f"ID:{s.id},Mark:{s.mark},Grade:{s.grade}")
+    def enroll():
+        mySubjects = subject_controller.enroll_subjectGUI()
 
+        if mySubjects:
+            new_subject = mySubjects[0]
+            total_enrolled = len(subject_controller.load_subjects())
+            message = (
+                f"Enrolling in Subject- {new_subject.id}\n\n"
+                f"You are now enrolled in {total_enrolled} out of 4 subjects"
+            )
+            messagebox.showinfo("Enrollment Successful", message)
+            render_subjects()
+        else:
+            messagebox.showerror("Enrollment Error", "Students are allowed to enroll in 4 subjects only.")
 
-    listbox.config(height=listbox.size(), width=window_width)
+    style = ttk.Style()
+    style.configure("TButton", font=("Helvetica", 16))
 
-    ttk.Label(root, text="Enroll subjects for student ID: " + student_id).pack(pady=10)
+    ttk.Label(root, text="Enroll subjects for student ID: " + student_id, font=("Helvetica", 22, "bold")).pack(pady=30)
+    ttk.Button(root, text="Enroll Subject", command=enroll, style="TButton").pack(pady=10)
+
+    subject_box = tk.LabelFrame(root, text="Enroled Subjects", padx=40, pady=30, font=("Helvetica", 18, "bold"))
+    subject_box.pack(padx=40, pady=50, fill="both", expand=True)
+
+    def render_subjects():
+        for widget in subject_box.winfo_children():
+            widget.destroy()
+        for s in subject_controller.load_subjects():
+            label_text = f"Subject ID: {s.id} | Mark: {s.mark} | Grade: {s.grade}"
+            tk.Label(subject_box, text=label_text, anchor="w", font=("Helvetica", 16)).pack(fill='x', padx=10, pady=6)
     
-    ttk.Button(root, text="Enroll Subject", command=lambda: enrollNewSubject(student_id)).pack(pady=10)
-
-    ttk.Button(root, text="Show Subjects", command=lambda: enrollNewSubject(student_id)).pack(pady=10)
-
+    render_subjects()
 
     root.mainloop()
 
 # Optional for standalone testing
 if __name__ == "__main__":
-    start_enrollment_window("550431")
+    start_enrollment_window("425505")
