@@ -1,21 +1,11 @@
-
 import tkinter as tk
-from tkinter import ttk
 from tkinter import messagebox as mb
-
-
-
-from gui_enrol import start_enrollment_window
+from gui_home import start_home_window
 from university_system.controllers.student_controller import StudentController
 
 root = tk.Tk()
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
+root.state('zoomed') #full size window
 
-window_width = int(screen_width * 1)  
-window_height = int(screen_height * 0.8) 
-
-root.geometry(f"{window_width}x{window_height}")
 root.title("Student Login")
 root.configure(bg='black')
 root.resizable(False, False)
@@ -48,21 +38,18 @@ cancelBtn.grid(column=1, row=3, sticky=tk.W, padx=30, pady=5)
 student = StudentController()
 
 
-def myLogin():
-    email = emailText.get()
-    password = passwordTxt.get()
-    studentId = student.loginGUI(email, password)
+def login():
+    email = emailText.get().strip()
+    password = passwordTxt.get().strip()
 
-    if studentId:
-        # mb.showinfo("Login Successful", "Correct email and password")
-        root.destroy()  # Close login window
-        start_enrollment_window(studentId)  # ✅ Pass the student ID
-    else:
-        mb.showerror("Login Failed", "Incorrect email or password")
+    try:
+        studentId = student.login_gui(email, password)
+        root.destroy() 
+        start_home_window(studentId)
+    except ValueError as e:
+        mb.showerror("Login Failed", str(e))
 
-
-
-loginBtn = tk.Button(box, text="Login", command=myLogin)
+loginBtn = tk.Button(box, text="Login", command=login)
 loginBtn.grid(column=1, row=3, sticky=tk.E, padx=5, pady=5)
 
 

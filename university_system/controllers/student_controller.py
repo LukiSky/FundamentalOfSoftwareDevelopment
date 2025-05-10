@@ -3,9 +3,9 @@ from university_system.controllers.subject_controller import SubjectController
 from university_system.controllers.user_controller import UserController
 from university_system.database import Database
 from university_system.models.student import Student
-
-
 from university_system.util.util import *
+from exceptions import LoginError, ValidationError
+
 
 class StudentController(UserController):
     def __init__(self):
@@ -32,6 +32,7 @@ class StudentController(UserController):
                     break
                 case _:
                     print(f"{emptySpace}Error: please either input l, r, or x")
+    
     def login(self):
         while True:
             email = input(f"{emptySpace}Email: ")
@@ -46,14 +47,30 @@ class StudentController(UserController):
             print("   Student does not exist")
             break
 
-    def loginGUI(self, email, password):
-        while True:
-            for student in self.students:
-                if student["email"] == email and student["password"] == password:
-                    print(f"{emptySpace}Welcome, {student['name']}!")              
-                    return student["id"]
-            return False
-            break
+    def login_gui(self, email, password):
+        if len(email) == 0 or len(password) == 0:
+            print("Please complete all required fields!!")
+            raise LoginError("Please complete all required fields")
+        
+        elif not self.checkPasswordEmailFormat(password, email):
+            raise ValidationError("Incorrect email or password format")
+
+        for student in self.students:
+            if student["email"] == email and student["password"] == password:
+                print(f"{emptySpace}Welcome, {student['name']}!")              
+                return student["id"]
+
+        raise LoginError("Student does not exist") 
+
+
+    def check_valid_student(self, email, password):
+        for student in self.students:
+            if student["email"] == email and student["password"] == password:
+                return True
+            else:
+                return False           
+                
+
     
     def checkPasswordEmailFormat(self, password, email):
         from university_system.university import University

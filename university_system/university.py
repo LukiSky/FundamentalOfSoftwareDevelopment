@@ -1,7 +1,6 @@
 import re
 
 from university_system.controllers.admin_controller import AdminController
-
 from university_system.controllers.student_controller import StudentController
 from university_system.util.util import *
 
@@ -10,7 +9,6 @@ class University:
     def __init__(self):
         self.admin = AdminController()
         self.student = StudentController()
-        self.menu()
 
     def menu(self):
         while True:

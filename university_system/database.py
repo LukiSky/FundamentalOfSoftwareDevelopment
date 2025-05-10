@@ -4,9 +4,11 @@ import os
 from university_system.util.util import *
 
 class Database:
-    DATA_FILE = "university_system/data/students.data"
+    DATA_FILE = "FundamentalOfSoftwareDevelopment/university_system/data/students.data"
     @staticmethod
     def load_data():
+        os.makedirs(os.path.dirname(Database.DATA_FILE), exist_ok=True) 
+
         if not os.path.exists(Database.DATA_FILE):
             with open(Database.DATA_FILE, 'w') as f:
                 json.dump([], f)
