@@ -1,1 +1,2 @@
-emptySpace = "      "
+indent = "      "
+indent2 = "            "

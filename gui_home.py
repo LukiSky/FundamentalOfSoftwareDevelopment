@@ -33,4 +33,4 @@ def start_home_window(student_id):
 
 # Test run
 if __name__ == "__main__":
-    start_home_window("425505")
+    start_home_window("790337")

@@ -12,7 +12,7 @@ class University:
 
     def menu(self):
         while True:
-            choice = input("University System: (A)dmin, (S)tudent, or X: ").lower()
+            choice = input("University System: (A)dmin, (S)tudent, or X: ").lower().strip()
             match choice:
                 case "a":
                     self.admin.menu()

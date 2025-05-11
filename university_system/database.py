@@ -32,17 +32,17 @@ class Database:
     def save_data(data):
         with open(Database.DATA_FILE, 'w') as f:
             json.dump(data, f, indent=4)
-        print(f" Data saved to {os.path.abspath(Database.DATA_FILE)}")
+        # print(f" Data saved to {os.path.abspath(Database.DATA_FILE)}")
 
     @staticmethod
     def remove_student_by_id(student_id):
         students = Database.load_data()
         updated_students = [s for s in students if s["id"] != student_id]
         if len(students) == len(updated_students):
-            print(f"{emptySpace}Student {student_id} does not exist")
+            print(f"{indent}Student {student_id} does not exist")
         else:
             Database.save_data(updated_students)
-            print(f"{emptySpace}Removing Student {student_id} Account")
+            print(f"{indent}Removing Student {student_id} Account")
 
     @staticmethod
     def save_subjects(student_id, subjects):

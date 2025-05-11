@@ -18,38 +18,47 @@ class StudentController(UserController):
         self.students.append(student)
         Database.save_data(self.students)
         self.load_students() 
+
     def menu(self):
         while True:
-            choice = input(f"{emptySpace}Student System (l/r/x): ").lower()
+            choice = input(f"{indent}Student System (l/r/x): ").lower().strip()
             match choice:
                 case "l":
-                    print(f"{emptySpace}Student Sign In")
-                    self.login()
+                    try:
+                        print(f"{indent}Student Sign In")
+                        self.login()
+                    except ValueError as e:
+                        print(e)
                 case "r":
-                    print(f"{emptySpace}Student Sign Up")
+                    print(f"{indent}Student Sign Up")
                     self.register()
                 case "x":
                     break
                 case _:
-                    print(f"{emptySpace}Error: please either input l, r, or x")
+                    print(f"{indent}Error: please either input l, r, or x")
     
     def login(self):
         while True:
-            email = input(f"{emptySpace}Email: ")
-            password = input(f"{emptySpace}Password: ")
+            email = input(f"{indent}Email: ")
+            password = input(f"{indent}Password: ")
+
+            if not self.checkPasswordEmailFormat(password, email):
+                print(f"{indent}Incorrect email or password format")
+                continue
+            
+            print(f"{indent}email and password formats acceptable")
 
             for student in self.students:
                 if student["email"] == email and student["password"] == password:
-                    print(f"{emptySpace}Welcome, {student['name']}!")
+                    # print(f"{emptySpace}Welcome, {student['name']}!")
                     subject_controller = SubjectController(student["id"])
                     subject_controller.menu()
                     return
-            print("   Student does not exist")
-            break
+                
+            raise LoginError(f"{indent}Student does not exist")
 
     def login_gui(self, email, password):
         if len(email) == 0 or len(password) == 0:
-            print("Please complete all required fields!!")
             raise LoginError("Please complete all required fields")
         
         elif not self.checkPasswordEmailFormat(password, email):
@@ -57,7 +66,7 @@ class StudentController(UserController):
 
         for student in self.students:
             if student["email"] == email and student["password"] == password:
-                print(f"{emptySpace}Welcome, {student['name']}!")              
+                print(f"{indent}Welcome, {student['name']}!")              
                 return student["id"]
 
         raise LoginError("Student does not exist") 
@@ -85,25 +94,26 @@ class StudentController(UserController):
             return False
 
     def register(self):
-        email = input(" Email: ")
-        password = input("  Password: ")
-
-        if not self.checkPasswordEmailFormat(password, email):
-            print("   Incorrect email or password format")
-            return
-
-        for student in self.students:
-            if student["email"] == email:
-                print(f"   Student {student['name']} already exists.")
-                return
-
-        name = input("  Name: ")
-        existing_ids = {student["id"] for student in self.students}
-
         while True:
+            email = input(f"{indent}Email: ")
+            password = input(f"{indent}Password: ")
+
+            if not self.checkPasswordEmailFormat(password, email):
+                print(f"{indent}Incorrect email or password format")
+                continue
+            print(f"{indent}email and password formats acceptable")
+
+            for student in self.students:
+                if student["email"] == email:
+                    print(f"{indent}Student {student['name']} already exists.")
+                    return
+
+            name = input(f"{indent}Name: ")
+            existing_ids = {student["id"] for student in self.students}
             new_id = f"{random.randint(1, 999999):06d}"
+            
             if new_id not in existing_ids:
-                print(f"    Enrolling Student {name}")
+                print(f"{indent}Enrolling Student {name}")
                 new_student = Student(name, email, password, new_id)
                 self.save_student(new_student.get_student_json())
                 return
