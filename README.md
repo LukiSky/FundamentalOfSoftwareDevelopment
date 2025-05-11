@@ -115,7 +115,7 @@ Visual specifications are available in the Requirements Analysis document:
 - Use-Case Diagram: Actors, goals, and relationships.
 - Class Diagram: Classes, attributes, methods, and associations.
 
-_See `Assugnment 1 filepath` for detailed diagrams._
+_See `Assignment 1 filepath` for detailed diagrams._
 
 ## Contributing
 
@@ -131,6 +131,6 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Acknowledgments
 
-- Developed by **Team Group2-Cmp1-Lab 07 - Lukia, Lia, Yeojin, Rob**
+- Developed by **Team Group2-Cmp1-Lab 07 - Lucky Luki, Lia, Yeojin, Rob**
 - Inspired by best practices in MVC design and Python application development.
 
