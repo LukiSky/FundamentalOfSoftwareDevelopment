@@ -26,5 +26,18 @@
                 "grade": "Z"
             }
         ]
+    },
+    {
+        "id": "212071",
+        "name": "Lia",
+        "email": "Lia@university.com",
+        "password": "Liaaa123",
+        "subjects": [
+            {
+                "id": "245",
+                "mark": 51,
+                "grade": "P"
+            }
+        ]
     }
 ]
