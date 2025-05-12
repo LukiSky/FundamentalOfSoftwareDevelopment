@@ -1,12 +1,14 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 from university_system.controllers.subject_controller import SubjectController
+from university_system.gui.alert_view import AlertView
 
 class EnrolmentFrame(tk.Tk):
-    def __init__(self, student_id):
+    def __init__(self, root, student_id):
         super().__init__()
         self.title("Student Enrolment")
-        
+        self.root = root
+
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
         self.geometry(f"{screen_width}x{screen_height}")
@@ -16,15 +18,16 @@ class EnrolmentFrame(tk.Tk):
 
         self._build_ui()
         self._render_subjects()
+        self.root.mainloop()
 
     def _build_ui(self):
         style = ttk.Style()
         style.configure("TButton", font=("Helvetica", 16))
 
-        ttk.Label(self, text="Enroll subjects for student ID: " + self.student_id,
+        ttk.Label(self, text="Enrol subjects for student ID: " + self.student_id,
                   font=("Helvetica", 28, "bold")).pack(pady=30)
 
-        ttk.Button(self, text="Enroll Subject", command=self._enroll_subject, style="TButton").pack(pady=10)
+        ttk.Button(self, text="Enrol Subject", command=self._enroll_subject, style="TButton").pack(pady=10)
 
         self.subject_box = tk.LabelFrame(self, text="Enroled Subjects", padx=40, pady=30,
                                          font=("Helvetica", 20, "bold"))
@@ -37,13 +40,13 @@ class EnrolmentFrame(tk.Tk):
             new_subject = mySubjects[0]
             total_enrolled = len(self.subject_controller.load_subjects())
             message = (
-                f"Enrolling in Subject- {new_subject.id}\n\n"
-                f"You are now enrolled in {total_enrolled} out of 4 subjects"
+                f"Enroling in Subject- {new_subject.id}\n\n"
+                f"You are now enroled in {total_enrolled} out of 4 subjects"
             )
-            messagebox.showinfo("Enrollment Successful", message)
+            self.showMessage("Enrolment Successful", message)
             self._render_subjects()
         else:
-            messagebox.showerror("Enrollment Error", "Students are allowed to enroll in 4 subjects only.")
+            self.showMessage("Enrolment Error", "Students are allowed to enroll in 4 subjects only.")
 
     def _render_subjects(self):
         for widget in self.subject_box.winfo_children():
@@ -54,7 +57,10 @@ class EnrolmentFrame(tk.Tk):
                 fill='x', padx=10, pady=6
             )
 
-# Optional standalone test
+    def showMessage(self, title, msg):
+        AlertView(self.root, title, msg)
+
+# For Test run
 if __name__ == "__main__":
     app = EnrolmentFrame("425505")
     app.mainloop()

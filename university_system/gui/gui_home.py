@@ -4,7 +4,6 @@ from university_system.gui.gui_subject import SubjectFrame
 from university_system.gui.gui_enrol import EnrolmentFrame
 
 class HomeFrame:
-
     def __init__(self, student_id):
         self.student_id = student_id
         self.root = tk.Tk()
@@ -43,12 +42,12 @@ class HomeFrame:
         view_btn.pack(pady=10)
 
     def enrol_subjects(self):
-        EnrolmentFrame(self.student_id)
+        EnrolmentFrame(self.root, self.student_id)
 
     def view_subjects(self):
         SubjectFrame(self.student_id)
 
 
-# Test run
+# For Test run
 if __name__ == "__main__":
     HomeFrame("790337")

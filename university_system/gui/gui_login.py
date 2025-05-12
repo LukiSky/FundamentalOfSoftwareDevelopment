@@ -3,25 +3,9 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 from university_system.gui.gui_home import HomeFrame
 from university_system.controllers.student_controller import StudentController
+from university_system.gui.alert_view import AlertView
 
 class LoginFrame(tk.LabelFrame):
-
-    def login(self):
-        email = self.emailText.get().strip()
-        password = self.passwordTxt.get().strip()
-
-        try:
-            studentId = self.student.login_gui(email, password)
-            self.root.destroy() 
-            HomeFrame(studentId)
-        except ValueError as e:
-            self.showError("Login Failed", str(e))
-
-    def close_window(self):
-        self.root.destroy()
-
-    def showError(self, title, msg):
-        mb.showerror(title, msg)
 
     def __init__(self, root, student: StudentController) -> None:
         super().__init__(root)
@@ -58,3 +42,20 @@ class LoginFrame(tk.LabelFrame):
 
         self.loginBtn = ttk.Button(self.box, text="Login", command=self.login, style="TButton")
         self.loginBtn.grid(column=1, row=3, sticky=tk.E, padx=5, pady=5)
+
+    def login(self):
+        email = self.emailText.get().strip()
+        password = self.passwordTxt.get().strip()
+
+        try:
+            studentId = self.student.login_gui(email, password)
+            self.root.destroy() 
+            HomeFrame(studentId)
+        except ValueError as e:
+            self.showError("Login Failed", str(e))
+
+    def close_window(self):
+        self.root.destroy()
+
+    def showError(self, title, msg):
+        AlertView(self.root, title, msg)

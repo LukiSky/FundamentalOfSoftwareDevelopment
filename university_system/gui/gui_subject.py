@@ -28,7 +28,7 @@ class SubjectFrame(tk.Tk):
             label_text = f"Subject ID: {s.id} | Mark: {s.mark} | Grade: {s.grade}"
             tk.Label(subject_box, text=label_text, anchor="w", font=("Helvetica", 18)).pack(fill='x', padx=10, pady=6)
 
-# Test run
+# For Test run
 if __name__ == "__main__":
     app = SubjectFrame("425505")
     app.mainloop()
