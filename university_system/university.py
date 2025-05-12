@@ -2,7 +2,6 @@ import re
 
 from university_system.controllers.admin_controller import AdminController
 from university_system.controllers.student_controller import StudentController
-from university_system.util.util import *
 
 
 class University:

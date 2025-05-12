@@ -1,10 +1,11 @@
 import json
 import os
 
-from university_system.util.util import *
+from university_system.utils.utils import *
 
 class Database:
     DATA_FILE = "FundamentalOfSoftwareDevelopment/university_system/data/students.data"
+    
     @staticmethod
     def load_data():
         os.makedirs(os.path.dirname(Database.DATA_FILE), exist_ok=True) 

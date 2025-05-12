@@ -1,6 +1,6 @@
-from university_system.database import Database
-from university_system.models.subject import Subject
-from university_system.util.util import *
+from university_system.model.database import Database
+from university_system.model.subject import Subject
+from university_system.utils.utils import *
 
 class SubjectController():
     def __init__(self, student_id):

@@ -1,10 +1,10 @@
 import random
 from university_system.controllers.subject_controller import SubjectController
 from university_system.controllers.user_controller import UserController
-from university_system.database import Database
-from university_system.models.student import Student
-from university_system.util.util import *
-from exceptions import LoginError, ValidationError
+from university_system.model.database import Database
+from university_system.model.student import Student
+from university_system.utils.utils import *
+from university_system.model.exceptions import LoginError, ValidationError
 
 
 class StudentController(UserController):
@@ -78,8 +78,6 @@ class StudentController(UserController):
                 return True
             else:
                 return False           
-                
-
     
     def checkPasswordEmailFormat(self, password, email):
         from university_system.university import University

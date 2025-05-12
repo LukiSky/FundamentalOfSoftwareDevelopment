@@ -1,8 +1,5 @@
-
-from university_system.database import Database
-
-
-from university_system.util.util import *
+from university_system.model.database import Database
+from university_system.utils.utils import *
 
 class Admin:
 
