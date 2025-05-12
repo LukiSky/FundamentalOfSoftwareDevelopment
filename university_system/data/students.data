@@ -3,6 +3,28 @@
         "id": "790337",
         "name": "Don",
         "email": "Donny@university.com",
-        "password": "Donny123"
+        "password": "Donny123",
+        "subjects": [
+            {
+                "id": "231",
+                "mark": 26,
+                "grade": "Z"
+            },
+            {
+                "id": "152",
+                "mark": 25,
+                "grade": "Z"
+            },
+            {
+                "id": "778",
+                "mark": 99,
+                "grade": "HD"
+            },
+            {
+                "id": "256",
+                "mark": 34,
+                "grade": "Z"
+            }
+        ]
     }
 ]

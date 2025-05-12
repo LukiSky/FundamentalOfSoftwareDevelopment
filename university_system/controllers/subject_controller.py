@@ -57,7 +57,7 @@ class SubjectController():
                 break
         Database.save_data(students)
     
-    def enroll_subjectGUI(self):
+    def enroll_subject_gui(self):
         if len(self.subjects) >= 4:
             return False
         print(self.subjects)

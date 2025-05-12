@@ -6,7 +6,6 @@ from university_system.model.student import Student
 from university_system.utils.utils import *
 from university_system.model.exceptions import LoginError, ValidationError
 
-
 class StudentController(UserController):
     def __init__(self):
         self.students = []
@@ -14,6 +13,7 @@ class StudentController(UserController):
 
     def load_students(self):
         self.students = Database.load_data()
+        
     def save_student(self, student):
         self.students.append(student)
         Database.save_data(self.students)
