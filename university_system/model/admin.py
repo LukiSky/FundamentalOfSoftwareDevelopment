@@ -44,7 +44,7 @@ class Admin:
 
         for grade, students_in_group in groups.items():
             if len(students_in_group) != 0:
-              print(f"{indent}{grade}  --> {students_in_group}")
+                print(f"{indent}{grade}  --> {students_in_group}")
 
     def categorizeByPassStatus(self):
         if self.checkStudentEmpty():
