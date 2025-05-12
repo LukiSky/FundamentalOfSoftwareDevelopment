@@ -8,7 +8,6 @@ class AdminController(UserController):
         self.admin = Admin()
 
     def menu(self):
-        
         while True:
             print("\n--- Admin System Menu ---")
             print(f"{indent}(c) Clear Database")
