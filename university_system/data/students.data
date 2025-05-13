@@ -1,29 +1,108 @@
 [
     {
-        "id": "790337",
-        "name": "Don",
-        "email": "Donny@university.com",
-        "password": "Donny123",
+        "id": "425505",
+        "name": "Johny",
+        "email": "Johny@gmail.com",
+        "password": "Johny123",
         "subjects": [
             {
-                "id": "231",
-                "mark": 26,
-                "grade": "Z"
+                "id": "602",
+                "mark": 53,
+                "grade": "P"
             },
             {
-                "id": "152",
-                "mark": 25,
-                "grade": "Z"
-            },
-            {
-                "id": "778",
-                "mark": 99,
+                "id": "153",
+                "mark": 86,
                 "grade": "HD"
             },
             {
-                "id": "256",
-                "mark": 34,
+                "id": "954",
+                "mark": 59,
+                "grade": "P"
+            },
+            {
+                "id": "261",
+                "mark": 62,
+                "grade": "P"
+            }
+        ]
+    },
+    {
+        "id": "410102",
+        "name": "Tommy",
+        "email": "Tom@gmail.com",
+        "password": "Tommy123",
+        "subjects": [
+            {
+                "id": "875",
+                "mark": 68,
+                "grade": "C"
+            },
+            {
+                "id": "957",
+                "mark": 79,
+                "grade": "D"
+            },
+            {
+                "id": "730",
+                "mark": 59,
+                "grade": "P"
+            }
+        ]
+    },
+    {
+        "id": "661510",
+        "name": "Test",
+        "email": "test@gmail.com",
+        "password": "Tester123",
+        "subjects": [
+            {
+                "id": "114",
+                "mark": 86,
+                "grade": "HD"
+            },
+            {
+                "id": "999",
+                "mark": 33,
                 "grade": "Z"
+            },
+            {
+                "id": "035",
+                "mark": 27,
+                "grade": "Z"
+            },
+            {
+                "id": "427",
+                "mark": 98,
+                "grade": "HD"
+            }
+        ]
+    },
+    {
+        "id": "550431",
+        "name": "Zebra",
+        "email": "Asz@gmail.com",
+        "password": "Zebra123",
+        "subjects": [
+            {
+                "id": "024",
+                "mark": 41,
+                "grade": "Z"
+            },
+            {
+                "id": "106",
+                "mark": 58,
+                "grade": "P"
+            },
+            {
+                "id": "815",
+                "mark": 76,
+                "grade": "D"
+            },
+            {
+                "id": "495",
+                "mark": 82,
+                "grade": "D"
             }
         ]
     },
@@ -41,15 +120,37 @@
         ]
     },
     {
-        "id": "927644",
-        "name": "Test",
-        "email": "test@university.com",
-        "password": "Testt123"
+        "id": "755079",
+        "name": "Donny",
+        "email": "Donny@university.com",
+        "password": "Donny123",
+        "subjects": [
+            {
+                "id": "055",
+                "mark": 89,
+                "grade": "HD"
+            },
+            {
+                "id": "601",
+                "mark": 47,
+                "grade": "Z"
+            },
+            {
+                "id": "818",
+                "mark": 35,
+                "grade": "Z"
+            },
+            {
+                "id": "265",
+                "mark": 29,
+                "grade": "Z"
+            }
+        ]
     },
     {
-        "id": "James",
-        "name": "James@university.com",
-        "email": "James123",
-        "password": "138088"
+        "id": "048587",
+        "name": "Luki",
+        "email": "Lukita@university.com",
+        "password": "Lukita123"
     }
 ]
