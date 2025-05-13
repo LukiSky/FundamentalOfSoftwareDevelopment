@@ -1,53 +1,51 @@
-
-
 from university_system.controllers.user_controller import UserController
-from university_system.database import Database
-from university_system.models.admin import Admin
-from university_system.util.util import *
+from university_system.model.database import Database
+from university_system.model.admin import Admin
+from university_system.utils.utils import *
 
 class AdminController(UserController):
     def __init__(self):
         self.admin = Admin()
 
     def menu(self):
-        
         while True:
             print("\n--- Admin System Menu ---")
-            print(f"{emptySpace}(c) Clear Database")
-            print(f"{emptySpace}(g) Group Students by Grade")
-            print(f"{emptySpace}(p) Partition Students (Pass/Fail)")
-            print(f"{emptySpace}(r) Remove Student")
-            print(f"{emptySpace}(s) Show Student List")
-            print(f"{emptySpace}(si) Sort Student by ID")
-            print(f"{emptySpace}(sn) Sort Student by Name")
-            print(f"{emptySpace}(se) Sort Student by Email")
-            print(f"{emptySpace}(x) Exit Admin Menu")
-            choice = input("  Enter choice: ").lower().strip()
+            print(f"{indent}(c) Clear Database")
+            print(f"{indent}(g) Group Students by Grade")
+            print(f"{indent}(p) Partition Students (Pass/Fail)")
+            print(f"{indent}(r) Remove Student")
+            print(f"{indent}(s) Show Student List")
+            print(f"{indent}(si) Sort Student by ID")
+            print(f"{indent}(sn) Sort Student by Name")
+            print(f"{indent}(se) Sort Student by Email")
+            print(f"{indent}(x) Exit Admin Menu")
+            
+            choice = input(f"{indent}Enter choice: ").lower().strip()
             match choice:
                 case "c":
-                    print("Clearings students database")
-                    Database.clear_all_data()
+                    print(f"{indent}Clearing students database")
+                    self.admin.clearStudentData()
                 case "g":
-                    print("Grade Grouping")
+                    print(f"{indent}Grade Grouping")
                     self.admin.organizeByGrade()
                 case "p":
-                    print("PASS/FAIL Partition")
+                    print(f"{indent}PASS/FAIL Partition")
                     self.admin.categorizeByPassStatus()
                 case "r":
                     self.admin.remove_student()
                 case "s":
-                    print("Student List")
+                    print(f"{indent}Student List")
                     self.admin.viewAllStudents()
                 case "si":
-                    print("Student List base on ID")
+                    print(f"{indent}Student List base on ID")
                     self.admin.sortStudent(choice)
                 case "sn":
-                    print("Student List base on name")
+                    print(f"{indent}Student List base on name")
                     self.admin.sortStudent(choice)
                 case "se":
-                    print("Student List base on Email")
+                    print(f"{indent}Student List base on Email")
                     self.admin.sortStudent(choice)
                 case "x":
                     break
                 case _:
-                    print("Error: please either input c, g, p, r, s, or x")
+                    print(f"{indent}Error: please either input c, g, p, r, s, or x")

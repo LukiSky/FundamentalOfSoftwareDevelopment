@@ -1,6 +1,5 @@
-from university_system.util.util import *
-class Student:
-    def __init__(self, name, email, password, id):
+class StudentEntity:
+    def __init__(self, id, name, email, password):
         self.id = id
         self.name = name
         self.email = email
@@ -13,4 +12,3 @@ class Student:
             "email": self.email,
             "password": self.password
         }
-
