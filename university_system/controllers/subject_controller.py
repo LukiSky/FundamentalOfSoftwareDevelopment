@@ -1,6 +1,7 @@
-from university_system.model.database import Database
-from university_system.model.subject import Subject
-from university_system.utils.utils import *
+from university_system.database import Database
+from university_system.models.subject import Subject
+from university_system.util.util import *
+
 
 class SubjectController():
     def __init__(self, student_id):
@@ -20,11 +21,11 @@ class SubjectController():
     
     def menu(self):
         while True:
-            choice = input(f"{indent2}Student Course Menu (c/e/r/s/x): ").lower().strip()
+            choice = input(f"{emptySpace}Student Course Menu (c/e/r/s/x): ").lower()
             match choice:
                 case "c":
-                    print(f"{indent2}Updating Password")
-                    self.change_password()
+                    print(f"{emptySpace}Updating Password")
+                    self.changePassword()
                 case "e":
                     self.enroll_subject()
                 case "r":
@@ -34,21 +35,21 @@ class SubjectController():
                 case "x":
                     break
                 case _:
-                    print(f"{indent2}Error: please either input c, e, r, s, or x")
+                    print(f"{emptySpace}Error: please either input c, e, r, s, or x")
 
     
-    def change_password(self):
+    def changePassword(self):
         from university_system.university import University
-        newPassword = input(f"{indent2}New password: ")
+        newPassword = input(f"{emptySpace}New password: ")
         university = University()
         while not university.is_valid_password(newPassword):
-            print(f"{indent2}Invalid password. Try again.")
-            newPassword = input(f"{indent2}New password: ")
+            print(f"{emptySpace}Invalid password. Try again.")
+            newPassword = input(f"{emptySpace}New password: ")
 
-        confirmPassword = input(f"{indent2}Confirm password: ")
+        confirmPassword = input(f"{emptySpace}Confirm password: ")
         while(newPassword != confirmPassword):
-            print(f"{indent2}Password does not match - try again")
-            confirmPassword = input(f"{indent2}Confirm password: ")
+            print("Password does not match - try again")
+            confirmPassword = input(f"{emptySpace}Confirm password: ")
         students = Database.load_data()
     
         for student in students:
@@ -57,7 +58,7 @@ class SubjectController():
                 break
         Database.save_data(students)
     
-    def enroll_subject_gui(self):
+    def enroll_subjectGUI(self):
         if len(self.subjects) >= 4:
             return False
         print(self.subjects)
@@ -70,11 +71,14 @@ class SubjectController():
         self.subjects.append(new_subject)
         self.save_subjects()
 
+
         return [new_subject]
+        
+    
 
     def enroll_subject(self):
         if len(self.subjects) >= 4:
-            print(f"{indent2}Students are allowed to enrol in 4 subjects only")
+            print("Students are allowed to enroll in 4 subjects only.")
             return
 
         new_subject = Subject()
@@ -85,29 +89,33 @@ class SubjectController():
 
         self.subjects.append(new_subject)
         self.save_subjects()
-        print(f"{indent2}Enrolling in Subject-{new_subject.id}")
-        print(f"{indent2}You are now enrolled in {len(self.subjects)} out of 4 subjects")
+        print(f"{emptySpace}Subject {new_subject.id} enrolled successfully!")
+        print(f"{emptySpace}Mark: {new_subject.mark}, Grade: {new_subject.grade}")
+        print(f"{emptySpace}Total Enrolled Subjects: {len(self.subjects)}")
 
     def remove_subject(self):
         if not self.subjects:
-            print(f"{indent2}No subjects enrolled to remove")
+            print("No subjects enrolled to remove.")
             return
 
-        subject_id = input(f"{indent2}Remove Subject by ID: ")
+        subject_id = input("Enter Subject ID to remove: ")
         for subject in self.subjects:
             if subject.id == subject_id:
                 self.subjects.remove(subject)
                 self.save_subjects()
-                print(f"{indent2}Dropping Subject-{subject_id}")
-                print(f"{indent2}You are now enrolled in {len(self.subjects)} out of 4 subjects")
+                print(f"{emptySpace}Subject {subject_id} removed successfully!")
                 return
 
-        print(f"{indent2}Subject ID {subject_id} not found")
+        print(f"{emptySpace}Subject ID {subject_id} not found.")
 
     def display_subjects(self):
-        print(f"{indent2}Showing {len(self.subjects)} subjects")
+        if not self.subjects:
+            print("No subjects enrolled.")
+            return
+
+        print(f"{emptySpace}Enrolled Subjects:")
         for subject in self.subjects:
-            print(f"{indent2}[ Subject::{subject.id:>3} -- mark = {subject.mark:>3} -- grade =  {subject.grade:>3} ]")
+            print(f"ID: {subject.id}, Mark: {subject.mark}, Grade: {subject.grade}")
 
     def save_subjects(self):
         subject_dicts = [s.get_subject_json() for s in self.subjects]

@@ -46,7 +46,8 @@ class LoginFrame(tk.LabelFrame):
     def login(self):
         email = self.emailText.get().strip()
         password = self.passwordTxt.get().strip()
-
+        print(email)
+        print(password)
         try:
             studentId = self.student.login_gui(email, password)
             self.root.destroy() 

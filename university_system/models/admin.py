@@ -1,28 +1,30 @@
-from university_system.model.database import Database
-from university_system.utils.utils import *
+
+from university_system.database import Database
+
+
+from university_system.util.util import *
 
 class Admin:
 
     def checkStudentEmpty(self):
         students = Database.load_data()
         if not students:
-            print(f"{indent2}<Nothing to Display>")
+            print(f"{emptySpace}<Nothing to Display>")
             return True
         return False
 
     def clearStudentData(self):
         if self.checkStudentEmpty():
             return
-        confirm = input(f"{indent}Are you sure you want to clear the database (Y)ES/ (N)O: ").strip()
-
+        confirm = input("Are you sure you want to clear the database (Y)ES/ (N)O: ").strip()
+        print(f"Raw input: [{confirm}]") 
         if confirm.lower() == "y":
             Database.save_data([])
-            print(f"{indent}Students data cleared")
+            print("Students data cleared")
         elif confirm.lower() == "n":
           return
         else:
-            print(f"{indent}Operation cancelled — input must be 'Y' or 'N' only.")
-
+            print("Operation cancelled — input must be 'Y' or 'N' only.")
     def getGrade(self, student):
         from university_system.university import University
         subjects = student.get("subjects", [])
@@ -36,15 +38,14 @@ class Admin:
             return
         students = Database.load_data()
         groups = {"HD": [], "D": [], "C": [], "P": [], "Z": []}
-
         for student in students:
+
             grade, avg = self.getGrade(student)
             student_info = f"{student['name']} :: {student['id']} --> GRADE: {grade} - MARK: {avg:.2f}"
             groups[grade].append(student_info)
-
         for grade, students_in_group in groups.items():
             if len(students_in_group) != 0:
-                print(f"{indent}{grade}  --> {students_in_group}")
+              print(f"{grade} --> {students_in_group}")
 
     def categorizeByPassStatus(self):
         if self.checkStudentEmpty():
@@ -61,14 +62,14 @@ class Admin:
                 passed.append(student_info)
             else:
                 failed.append(student_info)
-        print(f"{indent}Pass --> {passed}")
-        print(f"{indent}Fail --> {failed}")
+        print(f"{emptySpace}Pass --> {passed}")
+        print(f"{emptySpace}Fail --> {failed}")
 
 
     def remove_student(self):
         if self.checkStudentEmpty():
             return
-        student_id = input(f"{indent}Remove by ID: ")
+        student_id = input("Remove by ID: ")
         Database.remove_student_by_id(student_id)
 
 
@@ -78,7 +79,7 @@ class Admin:
         students = Database.load_data()
         
         for s in students:
-            print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
+            print(f"{s['name']} :: {s['id']} --> Email: {s['email']}")
     
     def sortStudent(self, typeOfSort):
         def myId(e):
@@ -99,5 +100,5 @@ class Admin:
             students.sort(key=myName)
       
         for s in students:
-            print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
+            print(f"{s['name']} :: {s['id']} --> Email: {s['email']}")
 

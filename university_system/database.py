@@ -1,15 +1,16 @@
 import json
 import os
 
-from university_system.utils.utils import *
+from university_system.util.util import *
 
 class Database:
-    DATA_FILE = "FundamentalOfSoftwareDevelopment/university_system/data/students.data"
+    DATA_FILE = "university_system/data/students.data"
+<<<<<<< HEAD:university_system/model/database.py
     
+=======
+>>>>>>> parent of 46b03ad (Merge branch 'main' of https://github.com/LukiSky/FundamentalOfSoftwareDevelopment):university_system/database.py
     @staticmethod
     def load_data():
-        os.makedirs(os.path.dirname(Database.DATA_FILE), exist_ok=True) 
-
         if not os.path.exists(Database.DATA_FILE):
             with open(Database.DATA_FILE, 'w') as f:
                 json.dump([], f)
@@ -33,17 +34,17 @@ class Database:
     def save_data(data):
         with open(Database.DATA_FILE, 'w') as f:
             json.dump(data, f, indent=4)
-        # print(f" Data saved to {os.path.abspath(Database.DATA_FILE)}")
+        print(f" Data saved to {os.path.abspath(Database.DATA_FILE)}")
 
     @staticmethod
     def remove_student_by_id(student_id):
         students = Database.load_data()
         updated_students = [s for s in students if s["id"] != student_id]
         if len(students) == len(updated_students):
-            print(f"{indent}Student {student_id} does not exist")
+            print(f"{emptySpace}Student {student_id} does not exist")
         else:
             Database.save_data(updated_students)
-            print(f"{indent}Removing Student {student_id} Account")
+            print(f"{emptySpace}Removing Student {student_id} Account")
 
     @staticmethod
     def save_subjects(student_id, subjects):
