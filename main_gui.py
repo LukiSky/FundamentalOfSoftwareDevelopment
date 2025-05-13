@@ -1,4 +1,5 @@
 import tkinter as tk
+from university_system.model.student import Student
 from university_system.gui.gui_login import LoginFrame
 from university_system.controllers.student_controller import StudentController
 
@@ -12,8 +13,8 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 root.geometry(f"{screen_width}x{screen_height}")
 
-controller = StudentController()
-box = LoginFrame(root, controller)
+model = Student()
+box = LoginFrame(root, model)
 box.pack(expand=True, fill="both")
 
 root.mainloop()
