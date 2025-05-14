@@ -31,6 +31,10 @@ class EnrolmentFrame(tk.Tk):
         self.subject_box.pack(fill="both", expand=True, padx=20, pady=20)
 
     def _enroll_subject(self):
+        self.lift()
+        self.attributes('-topmost', True)
+        self.after(0, lambda: self.attributes('-topmost', False))
+        
         mySubjects = self.subject_controller.enroll_subjectGUI()
 
         if mySubjects:

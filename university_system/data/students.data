@@ -6,24 +6,24 @@
         "password": "Johny123",
         "subjects": [
             {
-                "id": "602",
-                "mark": 53,
-                "grade": "P"
+                "id": "147",
+                "mark": 39,
+                "grade": "Z"
             },
             {
-                "id": "153",
-                "mark": 86,
+                "id": "555",
+                "mark": 77,
+                "grade": "D"
+            },
+            {
+                "id": "970",
+                "mark": 99,
                 "grade": "HD"
             },
             {
-                "id": "954",
-                "mark": 59,
-                "grade": "P"
-            },
-            {
-                "id": "261",
-                "mark": 62,
-                "grade": "P"
+                "id": "407",
+                "mark": 29,
+                "grade": "Z"
             }
         ]
     },
@@ -34,24 +34,14 @@
         "password": "Donny123",
         "subjects": [
             {
-                "id": "534",
-                "mark": 63,
-                "grade": "P"
-            },
-            {
-                "id": "682",
-                "mark": 29,
+                "id": "221",
+                "mark": 27,
                 "grade": "Z"
             },
             {
-                "id": "318",
-                "mark": 53,
-                "grade": "P"
-            },
-            {
-                "id": "489",
-                "mark": 85,
-                "grade": "HD"
+                "id": "810",
+                "mark": 46,
+                "grade": "Z"
             }
         ]
     },
@@ -62,24 +52,14 @@
         "password": "Donny123",
         "subjects": [
             {
-                "id": "055",
-                "mark": 89,
+                "id": "328",
+                "mark": 92,
                 "grade": "HD"
             },
             {
-                "id": "601",
-                "mark": 47,
-                "grade": "Z"
-            },
-            {
-                "id": "818",
-                "mark": 35,
-                "grade": "Z"
-            },
-            {
-                "id": "265",
-                "mark": 29,
-                "grade": "Z"
+                "id": "897",
+                "mark": 82,
+                "grade": "D"
             }
         ]
     }
