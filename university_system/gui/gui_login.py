@@ -9,7 +9,6 @@ from university_system.gui.gui_home import HomeFrame
 
 
 
-
 class LoginFrame(tk.LabelFrame):
 
     def __init__(self, root) -> None:

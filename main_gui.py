@@ -9,12 +9,14 @@ root.title("Student Login")
 root.configure(bg='#262626')
 root.resizable(False, False)
 
-screen_width = root.winfo_screenwidth()
-screen_height = root.winfo_screenheight()
-root.geometry(f"{screen_width}x{screen_height}")
-
-# model = StudentController()
 box = LoginFrame(root)
-box.pack(expand=True, fill="both")
+# box.pack( fill="both")
 
 root.mainloop()
+
+# while True:
+    # break
+# i = 5
+# while i >= 0:
+#     print("hey")
+#     i-=1

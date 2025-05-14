@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 
+from university_system.gui.gui_enroll import start_enrollment_window
+from university_system.gui.gui_subject import SubjectFrame
+
 class HomeFrame:
     def __init__(self, student_id):
         self.student_id = student_id
@@ -36,14 +39,14 @@ class HomeFrame:
         enrol_btn = ttk.Button(menu_frame, text="Enrol Subjects", command=self.enrol_subjects, width=20, style="TButton")
         enrol_btn.pack(pady=20)
 
-        # view_btn = ttk.Button(menu_frame, text="View Subjects", command=self.view_subjects, width=20, style="TButton")
-        # view_btn.pack(pady=10)
+        view_btn = ttk.Button(menu_frame, text="View Subjects", command=self.view_subjects, width=20, style="TButton")
+        view_btn.pack(pady=10)
 
     def enrol_subjects(self):
-        EnrolmentFrame(self.root, self.student_id)
+        start_enrollment_window(self.student_id)
 
-    # def view_subjects(self):
-    #     SubjectFrame(self.student_id)
+    def view_subjects(self):
+        SubjectFrame(self.student_id)
 
 
 # # For Test run
