@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox as mb
 
-from university_system.gui import AlertView
+from university_system.gui.AlertView import AlertView
 from university_system.controllers.student_controller import StudentController
 from university_system.gui.gui_home import HomeFrame
 
@@ -58,8 +58,11 @@ class LoginFrame(tk.LabelFrame):
                 self.root.destroy() 
                 HomeFrame(studentId)
             else:
-                mb.showerror("Login Failed",studentId)
+                # AlertView(self.root, "Fail in here", "Im in here")
+                mb.showerror("Login in here","Please input the correct password and email")
+                # AlertView
         except ValueError as e:
+
             self.showError("Login Failed", str(e))
 
     def close_window(self):

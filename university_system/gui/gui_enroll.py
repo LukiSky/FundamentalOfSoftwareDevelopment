@@ -3,6 +3,59 @@ from tkinter import Listbox, ttk, messagebox
 
 from university_system.controllers.subject_controller import SubjectController
 
+class EnrolmentFrame(tk.Tk):
+    def __init__(self, student_id):
+        super().__init__()
+        self.student_id = student_id
+        self.subject_controller = SubjectController(str(student_id))
+
+        self.title("Student Enrolment")
+        screen_width = self.winfo_screenwidth()
+        screen_height = self.winfo_screenheight()
+        self.geometry(f"{screen_width}x{screen_height}")
+
+        self._build_ui()
+        self._render_subjects()
+
+    def _build_ui(self):
+        style = ttk.Style()
+        style.configure("TButton", font=("Helvetica", 16))
+
+        ttk.Label(self, text="Enrol subjects for student ID: " + self.student_id,
+                  font=("Helvetica", 28, "bold")).pack(pady=30)
+
+        ttk.Button(self, text="Enrol Subject", command=self._enroll_subject, style="TButton").pack(pady=10)
+
+        self.subject_box = tk.LabelFrame(self, text="Enrolled Subjects", padx=40, pady=30,
+                                         font=("Helvetica", 20, "bold"))
+        self.subject_box.pack(fill="both", expand=True, padx=20, pady=20)
+
+    def _enroll_subject(self):
+        mySubjects = self.subject_controller.enroll_subjectGUI()
+
+        if mySubjects:
+            new_subject = mySubjects[0]
+            total_enrolled = len(self.subject_controller.load_subjects())
+            message = (
+                f"Enrolling in Subject - {new_subject.id}\n\n"
+                f"You are now enrolled in {total_enrolled} out of 4 subjects"
+            )
+            messagebox.showinfo("Enrolment Successful", message)
+            self._render_subjects()
+        else:
+            messagebox.showerror("Enrolment Error", "Students are allowed to enroll in 4 subjects only.")
+
+    def _render_subjects(self):
+        # Clear previous widgets in the frame
+        for widget in self.subject_box.winfo_children():
+            widget.destroy()
+
+        subjects = self.subject_controller.load_subjects()
+        for s in subjects:
+            ttk.Label(self.subject_box,
+                      text=f"ID: {s.id}, Mark: {s.mark}, Grade: {s.grade}",
+                      font=("Helvetica", 18)).pack(fill='x', padx=10, pady=6)
+
 
 
 def enrollNewSubject(student_id):

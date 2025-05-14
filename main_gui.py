@@ -10,8 +10,6 @@ root.configure(bg='#262626')
 root.resizable(False, False)
 
 box = LoginFrame(root)
-# box.pack( fill="both")
-
 root.mainloop()
 
 # while True:
