@@ -1,16 +1,13 @@
-
-
 from university_system.controllers.user_controller import UserController
-from university_system.database import Database
-from university_system.models.admin import Admin
-from university_system.util.util import *
+from university_system.model.database import Database
+from university_system.model.admin import Admin
+from university_system.utils.utils import *
 
 class AdminController(UserController):
     def __init__(self):
         self.admin = Admin()
 
     def menu(self):
-        
         while True:
             print("\n--- Admin System Menu ---")
             print(f"{indent}(c) Clear Database")
@@ -26,13 +23,13 @@ class AdminController(UserController):
             choice = input(f"{indent}Enter choice: ").lower().strip()
             match choice:
                 case "c":
-                    print("Clearings students database")
-                    Database.clear_all_data()
+                    print(f"{indent}Clearing students database")
+                    self.admin.clearStudentData()
                 case "g":
-                    print("Grade Grouping")
+                    print(f"{indent}Grade Grouping")
                     self.admin.organizeByGrade()
                 case "p":
-                    print("PASS/FAIL Partition")
+                    print(f"{indent}PASS/FAIL Partition")
                     self.admin.categorizeByPassStatus()
                 case "r":
                     self.admin.remove_student()
@@ -51,4 +48,4 @@ class AdminController(UserController):
                 case "x":
                     break
                 case _:
-                    print("Error: please either input c, g, p, r, s, or x")
+                    print(f"{indent}Error: please either input c, g, p, r, s, or x")
