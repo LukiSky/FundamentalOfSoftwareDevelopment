@@ -33,14 +33,14 @@ class HomeFrame:
         style = ttk.Style()
         style.configure("TButton", font=("Helvetica", 16))
 
-        # enrol_btn = ttk.Button(menu_frame, text="Enrol Subjects", command=self.enrol_subjects, width=20, style="TButton")
-        # enrol_btn.pack(pady=20)
+        enrol_btn = ttk.Button(menu_frame, text="Enrol Subjects", command=self.enrol_subjects, width=20, style="TButton")
+        enrol_btn.pack(pady=20)
 
         # view_btn = ttk.Button(menu_frame, text="View Subjects", command=self.view_subjects, width=20, style="TButton")
         # view_btn.pack(pady=10)
 
-    # def enrol_subjects(self):
-    #     EnrolmentFrame(self.root, self.student_id)
+    def enrol_subjects(self):
+        EnrolmentFrame(self.root, self.student_id)
 
     # def view_subjects(self):
     #     SubjectFrame(self.student_id)
