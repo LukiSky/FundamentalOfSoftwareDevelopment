@@ -1,13 +1,18 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox as mb
+
+from university_system.gui import AlertView
+from university_system.controllers.student_controller import StudentController
 from university_system.gui.gui_home import HomeFrame
-from university_system.model.student import Student
-from university_system.gui.alert_view import AlertView
+
+
+
+
 
 class LoginFrame(tk.LabelFrame):
 
-    def __init__(self, root, student: Student) -> None:
+    def __init__(self, root, student: StudentController) -> None:
         super().__init__(root)
         self.root = root
         self.student = student
@@ -49,9 +54,12 @@ class LoginFrame(tk.LabelFrame):
         print(email)
         print(password)
         try:
-            studentId = self.student.login_gui(email, password)
-            self.root.destroy() 
-            HomeFrame(studentId)
+            studentId = self.student.loginGUI(email, password)
+            if(studentId):
+                self.root.destroy() 
+                HomeFrame(studentId)
+            else:
+                mb.showerror("Login Failed",studentId)
         except ValueError as e:
             self.showError("Login Failed", str(e))
 
