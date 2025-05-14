@@ -12,10 +12,10 @@ from university_system.gui.gui_home import HomeFrame
 
 class LoginFrame(tk.LabelFrame):
 
-    def __init__(self, root, student: StudentController) -> None:
+    def __init__(self, root) -> None:
         super().__init__(root)
         self.root = root
-        self.student = student
+        self.student = StudentController()
         self.configure(bg='#262626')
 
         self.box = tk.LabelFrame(root, text='Login', bg='#262626', fg='white', padx=20, pady=20, font=('Helvetica', 28, 'bold'))

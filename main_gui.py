@@ -13,8 +13,8 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 root.geometry(f"{screen_width}x{screen_height}")
 
-model = StudentController()
-box = LoginFrame(root, model)
+# model = StudentController()
+box = LoginFrame(root)
 box.pack(expand=True, fill="both")
 
 root.mainloop()
