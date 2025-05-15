@@ -1,6 +1,13 @@
 import random
 from university_system.controllers.subject_controller import SubjectController
+import random
+from university_system.controllers.subject_controller import SubjectController
 from university_system.controllers.user_controller import UserController
+from university_system.database import Database
+from university_system.models.student import Student
+
+
+from university_system.util.util import *
 from university_system.database import Database
 from university_system.models.student import Student
 
@@ -18,14 +25,28 @@ class StudentController(UserController):
         self.students.append(student)
         Database.save_data(self.students)
         self.load_students() 
+        self.students = []
+        self.load_students()
+
+    def load_students(self):
+        self.students = Database.load_data()
+    def save_student(self, student):
+        self.students.append(student)
+        Database.save_data(self.students)
+        self.load_students() 
     def menu(self):
         while True:
+            choice = input(f"{emptySpace}Student System (l/r/x): ").lower()
             choice = input(f"{emptySpace}Student System (l/r/x): ").lower()
             match choice:
                 case "l":
                     print(f"{emptySpace}Student Sign In")
                     self.login()
+                    print(f"{emptySpace}Student Sign In")
+                    self.login()
                 case "r":
+                    print(f"{emptySpace}Student Sign Up")
+                    self.register()
                     print(f"{emptySpace}Student Sign Up")
                     self.register()
                 case "x":
