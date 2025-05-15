@@ -1,182 +1,136 @@
-# FundamentalOfSoftwareDevelopment
+@ -1,182 +1,136 @@
 
-# Project Title
+<!-- TODO: Check all filepaths -->
+<!-- docs for previous assessment - save down and update the reference -->
+<!-- License - We need to include a file for the MIT License - or any other if we want one -->
+<!-- Need to add GIT repository URL -->
+<!-- Do we want to add GUI screenshots -->
+<!-- COntributing section - do we want this?? -->
+<!-- Anything else I've missed -->
 
-> A one-sentence project description goes here.
+# University Self-Enrolment System
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)  
-[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](#version)  
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)  
+**Self-Enrolment CLI & GUI Application for University Coursework Management**
 
 ---
 
 ## Table of Contents
-
-1. [About](#about)  
-2. [Features](#features)  
-3. [Tech Stack](#tech-stack)  
-4. [Getting Started](#getting-started)  
-   - [Prerequisites](#prerequisites)  
-   - [Installation](#installation)  
-5. [Usage](#usage)  
-6. [Configuration](#configuration)  
-7. [Roadmap](#roadmap)  
-8. [Contributing](#contributing)  
-9. [Tests](#tests)  
-10. [License](#license)  
-11. [Contact](#contact)  
-12. [Acknowledgements](#acknowledgements)  
+- [Overview](#overview)
+- [Features](#features)
+- [User Stories](#user-stories)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [CLI Interface](#cli-interface)
+  - [GUI Interface](#gui-interface)
+- [UML Diagrams](#uml-diagrams)
+- [Demo & Showcase](#demo--showcase)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
-## About
+## Overview
 
-Briefly describe what this project does and why it exists.  
-- **Problem:** What problem are you solving?  
-- **Solution:** How does your project solve it?  
-- **Goals:** Any high-level goals or scope.  
+The University Self-Enrolment System is a Python-based application that allows students to register, log in, and enrol in subjects through both a command-line interface (CLI) and a graphical user interface (GUI). Administrative users can manage student records, group, partition, and clear enrolments. Data persistence is handled via a simple file-based database.
 
----
+This project was developed as part of Assessment 1 for the Software Development module and includes Requirements Analysis, Implementation (Part 2), and will be presented in a showcase presentation (Part 3).
 
 ## Features
 
-- Feature 1: _What it does_  
-- Feature 2: _Another capability_  
-- Feature 3: _And so on…_  
+- **Student Registration & Authentication**: Securely register and log in with email, name, and password.
+- **Subject Enrolment**: Enrol, view, change, or remove subjects (up to 4 per student).
+- **Administrative Tools**: View all students, group by criteria, partition subjects, remove student records, and clear databases.
+- **Dual Interfaces**: Fully featured CLI menus and intuitive Tkinter-based GUI.
+- **Persistent Storage**: Student and enrolment data stored in `data/students.data`.
 
----
+## User Stories
 
-## Tech Stack
+Key user stories derived from the backlog -Assessment part 1
 
-List languages, frameworks, libraries, and tools you’ve used. For example:
+_For the full backlog, see **Assessment 1 Part 1 – Requirements Analysis** in the `docs/` directory._
 
-- **Language:** Python 3.9  
-- **Framework:** Django 4.2  
-- **Database:** PostgreSQL  
-- **CI/CD:** GitHub Actions  
+## Architecture
 
----
+This system follows an MVC-like structure:
 
-## Getting Started
+- **Models** (`university_system/models`): Defines `Student`, `Subject`, and `Admin` entities.
+- **Database Layer** (`university_system/database.py`): Handles reading/writing to `data/students.data`.
+- **Controllers** (`SubjectController`, etc.): Encapsulate business logic for enrolment and administration.
+- **CLI Entry Point** (`main.py`): Launches the text-based menus for University, Student, and Admin.
+- **GUI Modules** (`gui_login.py`, `gui_home.py`, `gui_enrol.py`, `gui_subject.py`): Build the Tkinter windows for user interaction.
 
-### Prerequisites
+## Installation
 
-What software and versions are needed before installing:
-
-```bash
-# Example:
-python --version     # >= 3.9
-git --version        # >= 2.25
+1. **Clone the repository**
+```
+bash
+git clone https://github.com/xxxxxxxxxxxxxxxxxx
+cd university-self-enrolment
 ```
 
-### Installation
-
-Step-by-step instructions to get your development environment set up.
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/<your-username>/<repo-name>.git
-
-# 2. Change directory
-cd <repo-name>
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. (Optional) Set up database
-createdb <your_database_name>
+2. **Create a virtual environment**
+```
+bash
+python3 -m venv venv
+source venv/bin/activate   # macOS/Linux
+venv\Scripts\activate      # Windows
 ```
 
----
+3. **Install dependencies**
+> No external packages required; uses Python standard library (Tkinter for GUI).
 
 ## Usage
 
-Provide code snippets or screenshots showing how to run and use your project.
+### CLI Interface
 
-```bash
-# Start the application
-python main.py --help
-
-# Example command
-python main.py run --input data/sample.csv --output results/
+1. **Start the CLI**
+```
+bash
+python main.py
 ```
 
----
+2. **Navigate Menus**
+- **University Menu**: Choose Student or Admin.
+- **Student Menu**: Register, Log In, Enrol, View/Change/Remove Enrolments.
+- **Admin Menu**: Show students, Group, Partition, Remove, Clear database.
 
-## Configuration
+### GUI Interface
 
-Explain any environment variables or config files:
-
-```bash
-# Copy example config
-cp .env.example .env
-
-# Edit .env with your settings
-# e.g.
-# DATABASE_URL=postgres://user:pass@localhost:5432/dbname
-# SECRET_KEY=your-secret-key
+1. **Launch GUI**
+```
+bash
+python gui_login.py
 ```
 
----
+2. **Workflow**
+- **Login Window**: Enter credentials to access.
+- **Home Window**: Navigate between enrolment and subject management.
+- **Enrolment Window**: Add or remove subjects.
+- **Subject Window**: View subject details and summaries.
 
-## Roadmap
+## UML Diagrams
 
-Outline planned features and improvements:
+Visual specifications are available in the Requirements Analysis document:
+- Use-Case Diagram: Actors, goals, and relationships.
+- Class Diagram: Classes, attributes, methods, and associations.
 
-- [ ] Feature A  
-- [ ] Feature B  
-- [ ] Feature C  
-
----
+_See `Assugnment 1 filepath` for detailed diagrams._
 
 ## Contributing
 
-1. Fork the repository  
-2. Create your feature branch (`git checkout -b feature/fooBar`)  
-3. Commit your changes (`git commit -m 'Add some fooBar'`)  
-4. Push to the branch (`git push origin feature/fooBar`)  
-5. Open a Pull Request  
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
-
----
-
-## Tests
-
-Describe and show how to run your test suite.
-
-```bash
-# Run tests
-pytest tests/
-
-# Check coverage
-coverage run -m pytest && coverage report
-```
-
----
-
-## Version
-
-We use [SemVer](https://semver.org/) for versioning.  
-Current version: **1.0.0**
-
----
+Contributions are welcome! Please:
+1. Fork the repo and create your branch (`git checkout -b feature/YourFeature`).
+2. Commit your changes (`git commit -m 'Add feature'`).
+3. Push to the branch (`git push origin feature/YourFeature`).
+4. Open a Pull Request.
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+This project is licensed under the MIT License. See `LICENSE` for details.
 
----
+## Acknowledgments
 
-## Contact
-
-Your Name – [@your_twitter](https://twitter.com/your_twitter) – email@example.com  
-Project Link: [https://github.com/your-username/repo-name](https://github.com/your-username/repo-name)
-
----
-
-## Acknowledgements
-
-- 🛠️ Tools or libraries used  
-- 🙏 Inspirations, tutorials, or people to thank  
-- 🎨 Any design assets or icons  
+- Developed by **Team Group2-Cmp1-Lab 07 - Lukia, Lia, Yeojin, Rob**
+- Inspired by best practices in MVC design and Python application development.

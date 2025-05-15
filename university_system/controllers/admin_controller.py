@@ -4,6 +4,7 @@ from university_system.controllers.user_controller import UserController
 from university_system.database import Database
 from university_system.models.admin import Admin
 from university_system.util.util import *
+from university_system.utils.utils import *
 
 class AdminController(UserController):
     def __init__(self):
@@ -13,15 +14,15 @@ class AdminController(UserController):
         
         while True:
             print("\n--- Admin System Menu ---")
-            print(f"{emptySpace}(c) Clear Database")
-            print(f"{emptySpace}(g) Group Students by Grade")
-            print(f"{emptySpace}(p) Partition Students (Pass/Fail)")
-            print(f"{emptySpace}(r) Remove Student")
-            print(f"{emptySpace}(s) Show Student List")
-            print(f"{emptySpace}(si) Sort Student by ID")
-            print(f"{emptySpace}(sn) Sort Student by Name")
-            print(f"{emptySpace}(se) Sort Student by Email")
-            print(f"{emptySpace}(x) Exit Admin Menu")
+            print(f"{indent}(c) Clear Database")
+            print(f"{indent}(g) Group Students by Grade")
+            print(f"{indent}(p) Partition Students (Pass/Fail)")
+            print(f"{indent}(r) Remove Student")
+            print(f"{indent}(s) Show Student List")
+            print(f"{indent}(si) Sort Student by ID")
+            print(f"{indent}(sn) Sort Student by Name")
+            print(f"{indent}(se) Sort Student by Email")
+            print(f"{indent}(x) Exit Admin Menu")
             choice = input("  Enter choice: ").lower().strip()
             match choice:
                 case "c":
