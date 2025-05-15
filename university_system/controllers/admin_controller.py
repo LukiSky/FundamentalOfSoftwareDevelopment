@@ -36,21 +36,24 @@ class AdminController(UserController):
                         print(f"{indent}(si) Sort Student by ID")
                         print(f"{indent}(sn) Sort Student by Name")
                         print(f"{indent}(se) Sort Student by Email")
-                        print(f"{indent}(x) Exit Admin Menu")  
-                        choice2 = input("How would you like to view?") 
+                        print(f"{indent}(x) Exit Sort Menu")  
+
+                        choice2 = input(f"{indent}Select how to sort: ").lower().strip()
+                 
                         match choice2:
+                           
                             case "s":
                                 print(f"{indent}Student List")
                                 self.admin.viewAllStudents()
                             case "si":
                                 print(f"{indent}Student List base on ID")
-                                self.admin.sortStudent(choice)
+                                self.admin.sortStudent(choice2)
                             case "sn":
                                 print(f"{indent}Student List base on name")
-                                self.admin.sortStudent(choice)
+                                self.admin.sortStudent(choice2)
                             case "se":
                                 print(f"{indent}Student List base on Email")
-                                self.admin.sortStudent(choice)
+                                self.admin.sortStudent(choice2)
                             case "x":
                                 break
                 case "x":

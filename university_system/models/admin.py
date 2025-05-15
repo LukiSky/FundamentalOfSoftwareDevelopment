@@ -81,23 +81,30 @@ class Admin:
             print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
     
     def sortStudent(self, typeOfSort):
-        def myId(e):
-            return e['id']
-        def myEmail(e):
-            return e['email']
-        def myName(e):
-            return e['name']
+        print(f"Test:{typeOfSort}")
+        typeOfSort = typeOfSort.lower()
+        
+        def sort_by_id(e): return e['id']
+        def sort_by_email(e): return e['email']
+        def sort_by_name(e): return e['name']
         
         if self.checkStudentEmpty():
             return
-        students = (Database.load_data())
-        if(typeOfSort == "si"):
-            students.sort(key=myId)
-        elif(typeOfSort == "se"):
-            students.sort(key=myEmail)
-        elif(typeOfSort == "sn"):
-            students.sort(key=myName)
-      
+
+        data = Database.load_data()
+        students = list(data.values()) if isinstance(data, dict) else data
+
+        if typeOfSort == "si":
+            students.sort(key=sort_by_id)
+        elif typeOfSort == "se":
+            students.sort(key=sort_by_email)
+        elif typeOfSort == "sn":
+            students.sort(key=sort_by_name)
+        else:
+            print("Invalid sort type. Use 's', 'si', 'se', or 'sn'.")
+            return
+
         for s in students:
             print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
+
 

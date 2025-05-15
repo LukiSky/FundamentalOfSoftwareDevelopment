@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-
-from university_system.gui.gui_enroll import EnrolmentFrame, start_enrollment_window
+from university_system.gui.gui_enroll import EnrolmentFrame
 from university_system.gui.gui_subject import SubjectFrame
 
 class HomeFrame:
@@ -43,7 +42,7 @@ class HomeFrame:
         view_btn.pack(pady=10)
 
     def enrol_subjects(self):
-        EnrolmentFrame(self.student_id)
+        EnrolmentFrame(self.root, self.student_id)
 
     def view_subjects(self):
         SubjectFrame(self.student_id)
