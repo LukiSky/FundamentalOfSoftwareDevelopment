@@ -85,8 +85,11 @@ class StudentController(UserController):
 
         while True:
             new_id = f"{random.randint(1, 999999):06d}"
-            if new_id not in existing_ids:
-                print(f"    Enrolling Student {name}")
-                new_student = Student(name, email, password, new_id)
-                self.save_student(new_student.get_student_json())
-                return
+            try:
+                if new_id not in existing_ids:
+                    print(f"{emptySpace}Enrolling Student {name}")
+                    new_student = Student(name, email, password, new_id)
+                    self.save_student(new_student.get_student_json())
+                    return
+            except:
+                print("Error: Id is out of range")
