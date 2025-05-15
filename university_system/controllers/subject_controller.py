@@ -1,6 +1,6 @@
 from university_system.models.database import Database
 from university_system.models.subject import Subject
-from university_system.util.util import *
+from university_system.utils.utils import *
 from university_system.utils.utils import *
 
 class SubjectController():
@@ -58,7 +58,7 @@ class SubjectController():
                 break
         Database.save_data(students)
     
-    def enroll_subjectGUI(self):
+    def enroll_subject_gui(self):
         if len(self.subjects) >= 4:
             return False
         print(self.subjects)
@@ -112,3 +112,4 @@ class SubjectController():
 
     def save_subjects(self):
         subject_dicts = [s.get_subject_json() for s in self.subjects]
+        Database.save_subjects(self.student_id, subject_dicts)
