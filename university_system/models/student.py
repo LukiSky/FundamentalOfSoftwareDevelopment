@@ -1,7 +1,3 @@
-from textwrap import indent
-from university_system.util.util import *
-from university_system.utils.utils import *
-
 import random
 from university_system.models.student_entity import StudentEntity
 from university_system.utils.utils import *
@@ -25,20 +21,18 @@ class Student:
     def login(self):
             email = input(f"{indent}Email: ")
             password = input(f"{indent}Password: ")
-            # print(email)
-            # print(password)
-            # if not self.checkPasswordEmailFormat(password, email):
-            #     raise ValidationError()
+
+            if not self.checkPasswordEmailFormat(password, email):
+                raise ValidationError("Incorrect email or password format")
             
-            # print(f"{indent}email and password formats acceptable")
+            print(f"{indent}email and password formats acceptable")
 
             for student in self.students:
-                # print(student)
                 if student["email"] == email and student["password"] == password:
                     # print(f"{emptySpace}Welcome, {student['name']}!")
                     subject_controller = SubjectController(student["id"])
                     subject_controller.menu()
-                    # return
+                    return
                 
             raise LoginError(f"{indent}Student does not exist")
 
@@ -86,7 +80,6 @@ class Student:
         print(f"{indent}email and password formats acceptable")
 
         for student in self.students:
-          
             if student["email"] == email:
                 raise LoginError(f"Student {student['name']} already exists.")
 
@@ -96,7 +89,7 @@ class Student:
         
         if new_id not in existing_ids:
             print(f"{indent}Enrolling Student {name}")
-            new_student = StudentEntity(name, email, password, new_id)
+            new_student = StudentEntity(new_id, name, email, password)
             self.save_student(new_student.get_student_json())
 
     def get_student_json(self):
@@ -106,4 +99,3 @@ class Student:
             "email": self.email,
             "password": self.password
         }
-

@@ -2,7 +2,7 @@
     {
         "id": "425505",
         "name": "Johny",
-        "email": "Johny@gmail.com",
+        "email": "Johny@university.com",
         "password": "Johny123",
         "subjects": [
             {
@@ -30,7 +30,7 @@
     {
         "id": "410102",
         "name": "Tommy",
-        "email": "Tom@gmail.com",
+        "email": "Tom@university.com",
         "password": "Tommy123",
         "subjects": [
             {
@@ -47,63 +47,37 @@
                 "id": "730",
                 "mark": 59,
                 "grade": "P"
+            },
+            {
+                "id": "672",
+                "mark": 55,
+                "grade": "P"
             }
         ]
     },
     {
         "id": "661510",
         "name": "Test",
-        "email": "test@gmail.com",
-        "password": "Tester123",
-        "subjects": [
-            {
-                "id": "114",
-                "mark": 86,
-                "grade": "HD"
-            },
-            {
-                "id": "999",
-                "mark": 33,
-                "grade": "Z"
-            },
-            {
-                "id": "035",
-                "mark": 27,
-                "grade": "Z"
-            },
-            {
-                "id": "427",
-                "mark": 98,
-                "grade": "HD"
-            }
-        ]
+        "email": "test@university.com",
+        "password": "Tester123"
     },
     {
         "id": "550431",
         "name": "Zebra",
-        "email": "Asz@gmail.com",
+        "email": "Zebra@university.com",
         "password": "Zebra123",
         "subjects": [
             {
                 "id": "024",
                 "mark": 41,
                 "grade": "Z"
-            },
-            {
-                "id": "106",
-                "mark": 58,
-                "grade": "P"
-            },
-            {
-                "id": "815",
-                "mark": 76,
-                "grade": "D"
-            },
-            {
-                "id": "495",
-                "mark": 82,
-                "grade": "D"
             }
         ]
+    },
+    {
+        "id": "741990",
+        "name": "Hendry",
+        "email": "Hendry@university.com",
+        "password": "Tonny123"
     }
 ]
