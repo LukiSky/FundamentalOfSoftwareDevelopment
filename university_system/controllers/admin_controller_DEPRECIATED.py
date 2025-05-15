@@ -1,6 +1,6 @@
 from university_system.controllers.user_controller import UserController
-from university_system.model.database import Database
-from university_system.model.admin import Admin
+from university_system.models.database import Database
+from university_system.models.admin import Admin
 from university_system.utils.utils import *
 
 class AdminController(UserController):

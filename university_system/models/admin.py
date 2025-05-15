@@ -1,5 +1,5 @@
 
-from university_system.database import Database
+from university_system.models.database import Database
 
 
 from university_system.util.util import *

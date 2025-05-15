@@ -105,42 +105,5 @@
                 "grade": "D"
             }
         ]
-    },
-@ -41,15 +120,37 @@
-        ]
-    },
-    {
-        "id": "755079",
-        "name": "Donny",
-        "email": "Donny@university.com",
-        "password": "Donny123",
-        "subjects": [
-            {
-                "id": "055",
-                "mark": 89,
-                "grade": "HD"
-            },
-            {
-                "id": "601",
-                "mark": 47,
-                "grade": "Z"
-            },
-            {
-                "id": "818",
-                "mark": 35,
-                "grade": "Z"
-            },
-            {
-                "id": "265",
-                "mark": 29,
-                "grade": "Z"
-            }
-        ]
-    },
-    {
-        "id": "048587",
-        "name": "Luki",
-        "email": "Lukita@university.com",
-        "password": "Lukita123"
     }
 ]
