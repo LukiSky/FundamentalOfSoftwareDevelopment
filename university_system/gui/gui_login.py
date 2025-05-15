@@ -3,10 +3,9 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 
 from university_system.gui.AlertView import AlertView
-from university_system.controllers.student_controller import StudentController
+
 from university_system.gui.gui_home import HomeFrame
-
-
+from university_system.models.student import Student
 
 
 class LoginFrame(tk.LabelFrame):
@@ -14,7 +13,7 @@ class LoginFrame(tk.LabelFrame):
     def __init__(self, root) -> None:
         super().__init__(root)
         self.root = root
-        self.student = StudentController()
+        self.student = Student()
         self.configure(bg='#262626')
 
         self.box = tk.LabelFrame(root, text='Login', bg='#262626', fg='white', padx=20, pady=20, font=('Helvetica', 28, 'bold'))
@@ -53,7 +52,7 @@ class LoginFrame(tk.LabelFrame):
         print(email)
         print(password)
         try:
-            studentId = self.student.loginGUI(email, password)
+            studentId = self.student.login_gui(email, password)
             if(studentId):
                 self.root.destroy() 
                 HomeFrame(studentId)

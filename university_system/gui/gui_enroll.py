@@ -118,6 +118,3 @@ def start_enrollment_window(student_id):
 
     root.mainloop()
 
-# Optional for standalone testing
-if __name__ == "__main__":
-    start_enrollment_window("550431")
