@@ -6,26 +6,6 @@
         "password": "Johny123",
         "subjects": [
             {
-<<<<<<< HEAD
-                "id": "147",
-                "mark": 39,
-                "grade": "Z"
-            },
-            {
-                "id": "555",
-                "mark": 77,
-                "grade": "D"
-            },
-            {
-                "id": "970",
-                "mark": 99,
-                "grade": "HD"
-            },
-            {
-                "id": "407",
-                "mark": 29,
-                "grade": "Z"
-=======
                 "id": "602",
                 "mark": 53,
                 "grade": "P"
@@ -44,69 +24,53 @@
                 "id": "261",
                 "mark": 62,
                 "grade": "P"
->>>>>>> parent of 46b03ad (Merge branch 'main' of https://github.com/LukiSky/FundamentalOfSoftwareDevelopment)
             }
         ]
     },
     {
-        "id": "973926",
-<<<<<<< HEAD
-        "name": "Narama",
-        "email": "Narama@university.com",
-        "password": "Donny123",
+        "id": "410102",
+        "name": "Tommy",
+        "email": "Tom@university.com",
+        "password": "Tommy123",
         "subjects": [
             {
-                "id": "221",
-                "mark": 27,
-                "grade": "Z"
+                "id": "875",
+                "mark": 68,
+                "grade": "C"
             },
             {
-                "id": "810",
-                "mark": 46,
-                "grade": "Z"
-=======
-        "name": "Johny",
-        "email": "johny@university.com",
-        "password": "Donny123",
-        "subjects": [
-            {
-                "id": "534",
-                "mark": 63,
-                "grade": "P"
-            },
-            {
-                "id": "682",
-                "mark": 29,
-                "grade": "Z"
-            },
-            {
-                "id": "318",
-                "mark": 53,
-                "grade": "P"
-            },
-            {
-                "id": "489",
-                "mark": 85,
-                "grade": "HD"
->>>>>>> parent of 46b03ad (Merge branch 'main' of https://github.com/LukiSky/FundamentalOfSoftwareDevelopment)
-            }
-        ]
-    },
-    {
-        "id": "755079",
-        "name": "Donny",
-        "email": "Donny@university.com",
-        "password": "Donny123",
-        "subjects": [
-            {
-                "id": "328",
-                "mark": 92,
-                "grade": "HD"
-            },
-            {
-                "id": "897",
-                "mark": 82,
+                "id": "957",
+                "mark": 79,
                 "grade": "D"
+            },
+            {
+                "id": "730",
+                "mark": 59,
+                "grade": "P"
+            },
+            {
+                "id": "672",
+                "mark": 55,
+                "grade": "P"
+            }
+        ]
+    },
+    {
+        "id": "661510",
+        "name": "Test",
+        "email": "test@university.com",
+        "password": "Tester123"
+    },
+    {
+        "id": "550431",
+        "name": "Zebra",
+        "email": "Zebra@university.com",
+        "password": "Zebra123",
+        "subjects": [
+            {
+                "id": "024",
+                "mark": 41,
+                "grade": "Z"
             }
         ]
     }

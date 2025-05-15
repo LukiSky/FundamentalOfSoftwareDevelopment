@@ -5,10 +5,6 @@ from university_system.util.util import *
 
 class Database:
     DATA_FILE = "university_system/data/students.data"
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 46b03ad (Merge branch 'main' of https://github.com/LukiSky/FundamentalOfSoftwareDevelopment)
     @staticmethod
     def load_data():
         if not os.path.exists(Database.DATA_FILE):

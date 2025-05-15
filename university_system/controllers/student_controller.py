@@ -37,18 +37,17 @@ class StudentController(UserController):
     def menu(self):
         while True:
             choice = input(f"{emptySpace}Student System (l/r/x): ").lower()
-            choice = input(f"{emptySpace}Student System (l/r/x): ").lower()
+   
             match choice:
                 case "l":
                     print(f"{emptySpace}Student Sign In")
                     self.login()
-                    print(f"{emptySpace}Student Sign In")
-                    self.login()
+    
+            
                 case "r":
                     print(f"{emptySpace}Student Sign Up")
                     self.register()
-                    print(f"{emptySpace}Student Sign Up")
-                    self.register()
+            
                 case "x":
                     break
                 case _:
