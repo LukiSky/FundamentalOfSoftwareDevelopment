@@ -1,13 +1,5 @@
 @ -1,182 +1,136 @@
 
-<!-- TODO: Check all filepaths -->
-<!-- docs for previous assessment - save down and update the reference -->
-<!-- License - We need to include a file for the MIT License - or any other if we want one -->
-<!-- Need to add GIT repository URL -->
-<!-- Do we want to add GUI screenshots -->
-<!-- COntributing section - do we want this?? -->
-<!-- Anything else I've missed -->
-
 # University Self-Enrolment System
 
 **Self-Enrolment CLI & GUI Application for University Coursework Management**
@@ -110,9 +102,9 @@ python gui_login.py
 - **Enrolment Window**: Add or remove subjects.
 - **Subject Window**: View subject details and summaries.
 
-## UML Diagrams
+## UML Use Case and Class Diagrams
 
-Visual specifications are available in the Requirements Analysis document:
+Visual specifications:
 - Use-Case Diagram: Actors, goals, and relationships.
 - Class Diagram: Classes, attributes, methods, and associations.
 
