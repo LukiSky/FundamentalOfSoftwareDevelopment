@@ -49,7 +49,7 @@ This project was developed as part of Assessment 1 for the Software Development 
 
 Key user stories derived from the backlog -Assessment part 1
 
-_For the full backlog, see **Assessment 1 Part 1 – Requirements Analysis** in the `docs/` directory._
+_For the full backlog, see **Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final)** in the `docs/` directory._
 
 ## Architecture
 
@@ -66,8 +66,8 @@ This system follows an MVC-like structure:
 1. **Clone the repository**
 ```
 bash
-git clone https://github.com/xxxxxxxxxxxxxxxxxx
-cd university-self-enrolment
+git clone https://github.com/LukiSky/FundamentalOfSoftwareDevelopment.git
+cd FundamentalOfSoftwareDevelopment
 ```
 
 2. **Create a virtual environment**
@@ -116,7 +116,7 @@ Visual specifications are available in the Requirements Analysis document:
 - Use-Case Diagram: Actors, goals, and relationships.
 - Class Diagram: Classes, attributes, methods, and associations.
 
-_See `Assugnment 1 filepath` for detailed diagrams._
+_See `docs/A*Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final).pdf` for detailed diagrams._
 
 ## Contributing
 
@@ -133,4 +133,4 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 ## Acknowledgments
 
 - Developed by **Team Group2-Cmp1-Lab 07 - Lucky Luki, Lia, Yeojin, Rob**
-- Inspired by Tausif.
+- Inspired by and a special thanks to Tausif.
