@@ -102,13 +102,13 @@ python gui_login.py
 - **Enrolment Window**: Add or remove subjects.
 - **Subject Window**: View subject details and summaries.
 
-## UML Use Case and Class Diagrams
+## UML Use-Case and Class Diagrams
 
 Visual specifications:
 - Use-Case Diagram: Actors, goals, and relationships.
 - Class Diagram: Classes, attributes, methods, and associations.
 
-_See `docs/A*Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final).pdf` for detailed diagrams._
+_See `docs/Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final).pdf` for detailed diagrams._
 
 ## Contributing
 
