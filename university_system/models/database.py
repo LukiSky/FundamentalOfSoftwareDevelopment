@@ -2,6 +2,16 @@ import json
 import os
 from university_system.utils.utils import *
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
 class Database:
     DATA_FILE = "university_system/data/students.data"
 
@@ -37,7 +47,7 @@ class Database:
         students = Database.load_data()
         updated_students = [s for s in students if s["id"] != student_id]
         if len(students) == len(updated_students):
-            print(f"{indent}Student {student_id} does not exist")
+            print(f"{RED}{indent}Student {student_id} does not exist{RESET}")
         else:
             Database.save_data(updated_students)
             print(f"{indent}Removing Student {student_id} Account")

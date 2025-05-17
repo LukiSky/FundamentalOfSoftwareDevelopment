@@ -3,60 +3,71 @@ from university_system.models.database import Database
 from university_system.models.admin import Admin
 from university_system.utils.utils import *
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
+
 class AdminController(UserController):
     def __init__(self):
         self.admin = Admin()
 
     def menu(self):
         while True:
-            print("\n--- Admin System Menu ---")
-            print(f"{indent}(c) Clear Database")
-            print(f"{indent}(g) Group Students by Grade")
-            print(f"{indent}(p) Partition Students (Pass/Fail)")
-            print(f"{indent}(r) Remove Student")
-            print(f"{indent}(s) Show Student List")
-            print(f"{indent}(x) Exit Admin Menu")
+            print(f"{CYAN}\n--- Admin System Menu ---{RESET}")
+            print(f"{CYAN}{indent}(c) Clear Database{RESET}")
+            print(f"{CYAN}{indent}(g) Group Students by Grade{RESET}")
+            print(f"{CYAN}{indent}(p) Partition Students (Pass/Fail){RESET}")
+            print(f"{CYAN}{indent}(r) Remove Student{RESET}")
+            print(f"{CYAN}{indent}(s) Show Student List{RESET}")
+            print(f"{CYAN}{indent}(x) Exit Admin Menu{RESET}")
             
-            choice = input(f"{indent}Enter choice: ").lower().strip()
+            choice = input(f"{CYAN}{indent}Enter choice: {RESET}").lower().strip()
             match choice:
                 case "c":
-                    print(f"{indent}Clearing students database")
+                    print(f"{YELLOW}{indent}Clearing students database{RESET}")
                     self.admin.clearStudentData()
                 case "g":
-                    print(f"{indent}Grade Grouping")
+                    print(f"{YELLOW}{indent}Grade Grouping{RESET}")
                     self.admin.organizeByGrade()
                 case "p":
-                    print(f"{indent}PASS/FAIL Partition")
+                    print(f"{YELLOW}{indent}PASS/FAIL Partition{RESET}")
                     self.admin.categorizeByPassStatus()
                 case "r":
                     self.admin.remove_student()
                 case "s":
                     while True: 
-                        print(f"{indent}(s) Show full Student List")
-                        print(f"{indent}(si) Sort Student by ID")
-                        print(f"{indent}(sn) Sort Student by Name")
-                        print(f"{indent}(se) Sort Student by Email")
-                        print(f"{indent}(x) Exit Sort Menu")  
+                        print(f"{CYAN}{indent}(s) Show full Student List{RESET}")
+                        print(f"{CYAN}{indent}(si) Sort Student by ID{RESET}")
+                        print(f"{CYAN}{indent}(sn) Sort Student by Name{RESET}")
+                        print(f"{CYAN}{indent}(se) Sort Student by Email{RESET}")
+                        print(f"{CYAN}{indent}(x) Exit Sort Menu{RESET}")  
 
                         choice2 = input(f"{indent}Select how to sort: ").lower().strip()
                  
                         match choice2:
                            
                             case "s":
-                                print(f"{indent}Student List")
+                                print(f"{YELLOW}{indent}Student List{RESET}")
                                 self.admin.viewAllStudents()
                             case "si":
-                                print(f"{indent}Student List base on ID")
+                                print(f"{YELLOW}{indent}Student List base on ID{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "sn":
-                                print(f"{indent}Student List base on name")
+                                print(f"{YELLOW}{indent}Student List base on name{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "se":
-                                print(f"{indent}Student List base on Email")
+                                print(f"{YELLOW}{indent}Student List base on Email{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "x":
                                 break
                 case "x":
                     break
                 case _:
-                    print(f"{indent}Error: please either input c, g, p, r, s, or x")
+                    print(f"{RED}{indent}Error: please either input c, g, p, r, s, or x{RESET}")

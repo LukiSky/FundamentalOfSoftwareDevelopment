@@ -33,7 +33,7 @@
 
 ## Overview
 
-The University Self-Enrolment System is a Python-based application that allows students to register, log in, and enrol in subjects through both a command-line interface (CLI) and a graphical user interface (GUI). Administrative users can manage student records, group, partition, and clear enrolments. Data persistence is handled via a simple file-based database.
+The University Self-Enrolment System is a Python-based application that allows students to register, log in, and enrol in subjects through both a command-line interface (CLI) and a graphical user interface (GUI). Administrative users can manage student records, group, partition, and clear enrolments. Data persistence is handled via a simple file-based database (students.data).
 
 This project was developed as part of Assessment 1 for the Software Development module and includes Requirements Analysis, Implementation (Part 2), and will be presented in a showcase presentation (Part 3).
 
@@ -104,7 +104,7 @@ bash
 python gui_login.py
 ```
 
-2. **Workflow**
+2. **GUI Workflow**
 - **Login Window**: Enter credentials to access.
 - **Home Window**: Navigate between enrolment and subject management.
 - **Enrolment Window**: Add or remove subjects.
@@ -132,5 +132,5 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Acknowledgments
 
-- Developed by **Team Group2-Cmp1-Lab 07 - Lukia, Lia, Yeojin, Rob**
-- Inspired by best practices in MVC design and Python application development.
+- Developed by **Team Group2-Cmp1-Lab 07 - Lucky Luki, Lia, Yeojin, Rob**
+- Inspired by Tausif.

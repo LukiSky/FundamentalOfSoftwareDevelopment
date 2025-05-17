@@ -1,6 +1,16 @@
 from university_system.models.database import Database
 from university_system.utils.utils import *
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
 class Admin:
 
     def checkStudentEmpty(self):
@@ -13,15 +23,15 @@ class Admin:
     def clearStudentData(self):
         if self.checkStudentEmpty():
             return
-        confirm = input(f"{indent}Are you sure you want to clear the database (Y)ES/ (N)O: ").strip()
+        confirm = input(f"{RED}{indent}Are you sure you want to clear the database (Y)ES/ (N)O: {RESET}").strip()
 
         if confirm.lower() == "y":
             Database.save_data([])
-            print(f"{indent}Students data cleared")
+            print(f"{YELLOW}{indent}Students data cleared{RESET}")
         elif confirm.lower() == "n":
           return
         else:
-            print(f"{indent}Operation cancelled — input must be 'Y' or 'N' only.")
+            print(f"{RED}{indent}Operation cancelled — input must be 'Y' or 'N' only.{RESET}")
 
     def getGrade(self, student):
         from university_system.university import University
@@ -101,7 +111,7 @@ class Admin:
         elif typeOfSort == "sn":
             students.sort(key=sort_by_name)
         else:
-            print("Invalid sort type. Use 's', 'si', 'se', or 'sn'.")
+            print("{RED}Invalid sort type. Use 's', 'si', 'se', or 'sn'.{RESET}")
             return
 
         for s in students:
