@@ -3,6 +3,16 @@ from university_system.models.subject import Subject
 from university_system.utils.utils import *
 from university_system.utils.utils import *
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
 class SubjectController():
     def __init__(self, student_id):
         self.student_id = student_id
@@ -21,10 +31,10 @@ class SubjectController():
     
     def menu(self):
         while True:
-            choice = input(f"{indent2}Student Course Menu (c/e/r/s/x): ").lower().strip()
+            choice = input(f"{CYAN}{indent2}Student Course Menu (c/e/r/s/x): {RESET}").lower().strip()
             match choice:
                 case "c":
-                    print(f"{indent2}Updating Password")
+                    print(f"{YELLOW}{indent2}Updating Password{RESET}")
                     self.change_password()
                 case "e":
                     self.enroll_subject()
@@ -35,21 +45,21 @@ class SubjectController():
                 case "x":
                     break
                 case _:
-                    print(f"{indent2}Error: please either input c, e, r, s, or x")
+                    print(f"{RED}{indent2}Error: please either input c, e, r, s, or x{RESET}")
 
     
     def change_password(self):
         from university_system.university import University
-        newPassword = input(f"{indent2}New password: ")
+        newPassword = input(f"{CYAN}{indent2}New password: {RESET}")
         university = University()
         while not university.is_valid_password(newPassword):
-            print(f"{indent2}Invalid password. Try again.")
-            newPassword = input(f"{indent2}New password: ")
+            print(f"{RED}{indent2}Invalid password. Try again.{RESET}")
+            newPassword = input(f"{CYAN}{indent2}New password: {RESET}")
 
-        confirmPassword = input(f"{indent2}Confirm password: ")
+        confirmPassword = input(f"{CYAN}{indent2}Confirm password: {RESET}")
         while(newPassword != confirmPassword):
-            print(f"{indent2}Password does not match - try again")
-            confirmPassword = input(f"{indent2}Confirm password: ")
+            print(f"{RED}{indent2}Password does not match - try again{RESET}")
+            confirmPassword = input(f"{CYAN}{indent2}Confirm password: {RESET}")
         students = Database.load_data()
     
         for student in students:
@@ -75,7 +85,7 @@ class SubjectController():
 
     def enroll_subject(self):
         if len(self.subjects) >= 4:
-            print(f"{indent2}Students are allowed to enrol in 4 subjects only")
+            print(f"{RED}{indent2}Students are allowed to enrol in 4 subjects only{RESET}")
             return
 
         new_subject = Subject()
@@ -86,27 +96,27 @@ class SubjectController():
 
         self.subjects.append(new_subject)
         self.save_subjects()
-        print(f"{indent2}Enrolling in Subject-{new_subject.id}")
-        print(f"{indent2}You are now enrolled in {len(self.subjects)} out of 4 subjects")
+        print(f"{YELLOW}{indent2}Enrolling in Subject-{new_subject.id}{RESET}")
+        print(f"{YELLOW}{indent2}You are now enrolled in {len(self.subjects)} out of 4 subjects{RESET}")
 
     def remove_subject(self):
         if not self.subjects:
-            print(f"{indent2}No subjects enrolled to remove")
+            print(f"{RED}{indent2}No subjects enrolled to remove{RESET}")
             return
 
-        subject_id = input(f"{indent2}Remove Subject by ID: ")
+        subject_id = input(f"{CYAN}{indent2}Remove Subject by ID: {RESET}")
         for subject in self.subjects:
             if subject.id == subject_id:
                 self.subjects.remove(subject)
                 self.save_subjects()
-                print(f"{indent2}Dropping Subject-{subject_id}")
-                print(f"{indent2}You are now enrolled in {len(self.subjects)} out of 4 subjects")
+                print(f"{YELLOW}{indent2}Dropping Subject-{subject_id}{RESET}")
+                print(f"{YELLOW}{indent2}You are now enrolled in {len(self.subjects)} out of 4 subjects{RESET}")
                 return
 
-        print(f"{indent2}Subject ID {subject_id} not found")
+        print(f"{RED}{indent2}Subject ID {subject_id} not found{RESET}")
 
     def display_subjects(self):
-        print(f"{indent2}Showing {len(self.subjects)} subjects")
+        print(f"{YELLOW}{indent2}Showing {len(self.subjects)} subjects{RESET}")
         for subject in self.subjects:
             print(f"{indent2}[ Subject::{subject.id:>3} -- mark = {subject.mark:>3} -- grade =  {subject.grade:>3} ]")
 

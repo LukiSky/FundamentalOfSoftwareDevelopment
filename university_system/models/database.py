@@ -25,7 +25,7 @@ class Database:
             try:
                 return json.load(f)
             except json.JSONDecodeError:
-                print("Error: The data file is empty or corrupted.")
+                print(f"{RED}Error: The data file is empty or corrupted.{RESET}")
                 return []
 
     @staticmethod
@@ -50,7 +50,7 @@ class Database:
             print(f"{RED}{indent}Student {student_id} does not exist{RESET}")
         else:
             Database.save_data(updated_students)
-            print(f"{indent}Removing Student {student_id} Account")
+            print(f"{YELLOW}{indent}Removing Student {student_id} Account{RESET}")
 
     @staticmethod
     def save_subjects(student_id, subjects):

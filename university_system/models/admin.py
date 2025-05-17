@@ -78,7 +78,7 @@ class Admin:
     def remove_student(self):
         if self.checkStudentEmpty():
             return
-        student_id = input(f"{indent}Remove by ID: ")
+        student_id = input(f"{CYAN}{indent}Remove by ID: {RESET}")
         Database.remove_student_by_id(student_id)
 
 

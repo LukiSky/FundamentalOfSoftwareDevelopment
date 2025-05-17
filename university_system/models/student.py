@@ -5,6 +5,16 @@ from university_system.controllers.subject_controller import SubjectController
 from university_system.models.exception import LoginError, ValidationError
 from university_system.models.database import Database
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
 class Student:
     def __init__(self):
         self.students = []
@@ -23,9 +33,9 @@ class Student:
             password = input(f"{indent}Password: ")
 
             if not self.checkPasswordEmailFormat(password, email):
-                raise ValidationError("Incorrect email or password format")
+                raise ValidationError(f"{RED}Incorrect email or password forma{RESET}")
             
-            print(f"{indent}email and password formats acceptable")
+            print(f"{YELLOW}{indent}email and password formats acceptable{RESET}")
 
             for student in self.students:
                 if student["email"] == email and student["password"] == password:
@@ -34,11 +44,11 @@ class Student:
                     subject_controller.menu()
                     return
                 
-            raise LoginError(f"{indent}Student does not exist")
+            raise LoginError(f"{RED}{indent}Student does not exist{RESET}")
 
     def login_gui(self, email, password):
         if len(email) == 0 or len(password) == 0:
-            raise LoginError("Please complete all required fields")
+            raise LoginError(f"{RED}Please complete all required fields{RESET}")
         
         elif not self.checkPasswordEmailFormat(password, email):
             raise ValidationError()
@@ -48,7 +58,7 @@ class Student:
                 print(f"{indent}Welcome, {student['name']}!")              
                 return student["id"]
 
-        raise LoginError("Student does not exist") 
+        raise LoginError(f"{RED}Student does not exist{RESET}") 
 
 
     def check_valid_student(self, email, password):
@@ -77,18 +87,18 @@ class Student:
         if not self.checkPasswordEmailFormat(password, email):
             raise ValidationError()
         
-        print(f"{indent}email and password formats acceptable")
+        print(f"{YELLOW}{indent}email and password formats acceptable{RESET}")
 
         for student in self.students:
             if student["email"] == email:
-                raise LoginError(f"Student {student['name']} already exists.")
+                raise LoginError(f"{RED}Student {student['name']} already exists.{RESET}")
 
         name = input(f"{indent}Name: ")
         existing_ids = {student["id"] for student in self.students}
         new_id = f"{random.randint(1, 999999):06d}"
         
         if new_id not in existing_ids:
-            print(f"{indent}Enrolling Student {name}")
+            print(f"{YELLOW}{indent}Enrolling Student {name}{RESET}")
             new_student = StudentEntity(new_id, name, email, password)
             self.save_student(new_student.get_student_json())
 
