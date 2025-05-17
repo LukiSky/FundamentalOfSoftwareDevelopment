@@ -110,6 +110,8 @@ Visual specifications:
 
 _See `docs/Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final).pdf` for detailed diagrams._
 
+Note: Some changes were made in the build phase to better reflect an MVC model.
+
 ## Contributing
 
 Contributions are welcome! Please:
