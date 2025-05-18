@@ -2,6 +2,15 @@ import re
 from university_system.controllers.admin_controller import AdminController
 from university_system.controllers.student_controller import StudentController
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
 
 class University:
     def __init__(self):
@@ -10,17 +19,17 @@ class University:
 
     def menu(self):
         while True:
-            choice = input("University System: (A)dmin, (S)tudent, or X: ").lower().strip()
+            choice = input(f"{CYAN}University System: (A)dmin, (S)tudent, or X: {RESET}").lower().strip()
             match choice:
                 case "a":
                     self.admin.menu()
                 case "s":
                     self.student.menu()
                 case "x":
-                    print("Thank You")
+                    print(f"{YELLOW}Thank You{RESET}")
                     break
                 case _:
-                    print("Error: please either input A, S, or X")
+                    print(f"{RED}Error: please either input A, S, or X{RESET}")
 
     def is_valid_password(self, password):
         first_upper = password[0].isupper()

@@ -1,13 +1,5 @@
 @ -1,182 +1,136 @@
 
-<!-- TODO: Check all filepaths -->
-<!-- docs for previous assessment - save down and update the reference -->
-<!-- License - We need to include a file for the MIT License - or any other if we want one -->
-<!-- Need to add GIT repository URL -->
-<!-- Do we want to add GUI screenshots -->
-<!-- COntributing section - do we want this?? -->
-<!-- Anything else I've missed -->
-
 # University Self-Enrolment System
 
 **Self-Enrolment CLI & GUI Application for University Coursework Management**
@@ -33,7 +25,7 @@
 
 ## Overview
 
-The University Self-Enrolment System is a Python-based application that allows students to register, log in, and enrol in subjects through both a command-line interface (CLI) and a graphical user interface (GUI). Administrative users can manage student records, group, partition, and clear enrolments. Data persistence is handled via a simple file-based database.
+The University Self-Enrolment System is a Python-based application that allows students to register, log in, and enrol in subjects through both a command-line interface (CLI) and a graphical user interface (GUI). Administrative users can manage student records, group, partition, and clear enrolments. Data persistence is handled via a simple file-based database (students.data).
 
 This project was developed as part of Assessment 1 for the Software Development module and includes Requirements Analysis, Implementation (Part 2), and will be presented in a showcase presentation (Part 3).
 
@@ -49,7 +41,7 @@ This project was developed as part of Assessment 1 for the Software Development 
 
 Key user stories derived from the backlog -Assessment part 1
 
-_For the full backlog, see **Assessment 1 Part 1 – Requirements Analysis** in the `docs/` directory._
+_For the full backlog, see **Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final)** in the `docs/` directory._
 
 ## Architecture
 
@@ -66,8 +58,8 @@ This system follows an MVC-like structure:
 1. **Clone the repository**
 ```
 bash
-git clone https://github.com/xxxxxxxxxxxxxxxxxx
-cd university-self-enrolment
+git clone https://github.com/LukiSky/FundamentalOfSoftwareDevelopment.git
+cd FundamentalOfSoftwareDevelopment
 ```
 
 2. **Create a virtual environment**
@@ -104,19 +96,21 @@ bash
 python gui_login.py
 ```
 
-2. **Workflow**
+2. **GUI Workflow**
 - **Login Window**: Enter credentials to access.
 - **Home Window**: Navigate between enrolment and subject management.
 - **Enrolment Window**: Add or remove subjects.
 - **Subject Window**: View subject details and summaries.
 
-## UML Diagrams
+## UML Use-Case and Class Diagrams
 
-Visual specifications are available in the Requirements Analysis document:
+Visual specifications:
 - Use-Case Diagram: Actors, goals, and relationships.
 - Class Diagram: Classes, attributes, methods, and associations.
 
-_See `Assugnment 1 filepath` for detailed diagrams._
+_See `docs/Assessment 1 - Part 1 - Submission - Group2-Cmp1-Lab 07 (Final).pdf` for detailed diagrams._
+
+Note: Some changes were made in the build phase to better reflect an MVC model.
 
 ## Contributing
 
@@ -132,5 +126,5 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Acknowledgments
 
-- Developed by **Team Group2-Cmp1-Lab 07 - Lukia, Lia, Yeojin, Rob**
-- Inspired by best practices in MVC design and Python application development.
+- Developed by **Team Group2-Cmp1-Lab 07 - Lucky Luki, Lia, Yeojin, Rob**
+- Inspired by and a special thanks to Tausif.

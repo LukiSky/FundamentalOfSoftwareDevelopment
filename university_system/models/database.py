@@ -1,9 +1,25 @@
 import json
 import os
 from university_system.utils.utils import *
+<<<<<<< HEAD
 
 class Database:
     DATA_FILE = "FundamentalOfSoftwareDevelopment/university_system/data/students.data"
+=======
+
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
+class Database:
+    DATA_FILE = "university_system/data/students.data"
+>>>>>>> 74ad414099a2dfb4c0e430ca8882601a35a366d3
 
     @staticmethod
     def load_data():
@@ -15,7 +31,7 @@ class Database:
             try:
                 return json.load(f)
             except json.JSONDecodeError:
-                print("Error: The data file is empty or corrupted.")
+                print(f"{RED}Error: The data file is empty or corrupted.{RESET}")
                 return []
 
     @staticmethod
@@ -37,10 +53,17 @@ class Database:
         students = Database.load_data()
         updated_students = [s for s in students if s["id"] != student_id]
         if len(students) == len(updated_students):
+<<<<<<< HEAD
             print(f"{indent}Student {student_id} does not exist")
         else:
             Database.save_data(updated_students)
             print(f"{indent}Removing Student {student_id} Account")
+=======
+            print(f"{RED}{indent}Student {student_id} does not exist{RESET}")
+        else:
+            Database.save_data(updated_students)
+            print(f"{YELLOW}{indent}Removing Student {student_id} Account{RESET}")
+>>>>>>> 74ad414099a2dfb4c0e430ca8882601a35a366d3
 
     @staticmethod
     def save_subjects(student_id, subjects):

@@ -4,16 +4,27 @@ from university_system.utils.utils import *
 from university_system.models.exception import LoginError, ValidationError
 from university_system.models.student import Student
 
+### Color Controls ###
+
+RESET  = "\033[0m"
+RED    = "\033[31m"
+GREEN  = "\033[32m"
+YELLOW = "\033[33m"
+CYAN   = "\033[36m"
+
+####
+
+
 class StudentController(UserController):
     def __init__(self):
         self.students = Student()
 
     def menu(self):
         while True:
-            choice = input(f"{indent}Student System (l/r/x): ").lower().strip()
+            choice = input(f"{CYAN}{indent}Student System (l/r/x): {RESET}").lower().strip()
             match choice:
                 case "l":
-                    print(f"{indent}Student Sign In")
+                    print(f"{GREEN}{indent}Student Sign In{RESET}")
                     while True:
                         try:
                             self.students.login()
@@ -21,7 +32,7 @@ class StudentController(UserController):
                         except ValueError as e:
                             print(f"{indent}{e}")
                 case "r":
-                    print(f"{indent}Student Sign Up")
+                    print(f"{GREEN}{indent}Student Sign Up{RESET}")
                     while True:
                         try:
                             self.students.register()
@@ -31,4 +42,4 @@ class StudentController(UserController):
                 case "x":
                     break
                 case _:
-                    print(f"{indent}Error: please either input l, r, or x")
+                    print(f"{RED}{indent}Error: please either input l, r, or x{RESET}")
