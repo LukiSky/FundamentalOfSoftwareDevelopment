@@ -43,15 +43,6 @@ class AdminController(UserController):
                     self.admin.remove_student()
                 case "s":
                     while True: 
-<<<<<<< HEAD
-                        print(f"{indent}(s) Show full Student List")
-                        print(f"{indent}(si) Sort Student by ID")
-                        print(f"{indent}(sn) Sort Student by Name")
-                        print(f"{indent}(se) Sort Student by Email")
-                        print(f"{indent}(x) Exit Sort Menu")  
-
-                        choice2 = input(f"{indent}Select how to sort: ").lower().strip()
-=======
                         print(f"{CYAN}{indent}(s) Show full Student List{RESET}")
                         print(f"{CYAN}{indent}(si) Sort Student by ID{RESET}")
                         print(f"{CYAN}{indent}(sn) Sort Student by Name{RESET}")
@@ -59,8 +50,6 @@ class AdminController(UserController):
                         print(f"{CYAN}{indent}(x) Exit Sort Menu{RESET}")  
 
                         choice2 = input(f"{indent}Select how to sort: ").lower().strip()
-                 
->>>>>>> 74ad414099a2dfb4c0e430ca8882601a35a366d3
                         match choice2:
                            
                             case "s":

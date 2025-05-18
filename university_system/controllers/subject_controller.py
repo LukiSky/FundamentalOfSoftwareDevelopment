@@ -1,10 +1,5 @@
 from university_system.models.database import Database
 from university_system.models.subject import Subject
-<<<<<<< HEAD
-from university_system.utils.utils import *
-=======
->>>>>>> 74ad414099a2dfb4c0e430ca8882601a35a366d3
-from university_system.utils.utils import *
 from university_system.utils.utils import *
 
 ### Color Controls ###
