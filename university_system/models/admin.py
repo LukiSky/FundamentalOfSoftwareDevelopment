@@ -106,6 +106,6 @@ class Admin:
             return
 
         for s in students:
-            print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
+            print(f"{indent2}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
 
 

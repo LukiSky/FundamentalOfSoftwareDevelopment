@@ -33,26 +33,26 @@ class AdminController(UserController):
                     self.admin.remove_student()
                 case "s":
                     while True: 
-                        print(f"{CYAN}{indent}(s) Show full Student List{RESET}")
-                        print(f"{CYAN}{indent}(si) Sort Student by ID{RESET}")
-                        print(f"{CYAN}{indent}(sn) Sort Student by Name{RESET}")
-                        print(f"{CYAN}{indent}(se) Sort Student by Email{RESET}")
-                        print(f"{CYAN}{indent}(x) Exit Sort Menu{RESET}")  
+                        print(f"{CYAN}{indent2}(s) Show full Student List{RESET}")
+                        print(f"{CYAN}{indent2}(si) Sort Student by ID{RESET}")
+                        print(f"{CYAN}{indent2}(sn) Sort Student by Name{RESET}")
+                        print(f"{CYAN}{indent2}(se) Sort Student by Email{RESET}")
+                        print(f"{CYAN}{indent2}(x) Exit Sort Menu{RESET}")  
 
-                        choice2 = input(f"{indent}Select how to sort: ").lower().strip()
+                        choice2 = input(f"{indent2}Select how to sort: ").lower().strip()
                         match choice2:
                            
                             case "s":
-                                print(f"{YELLOW}{indent}Student List{RESET}")
+                                print(f"{YELLOW}{indent2}Student List{RESET}")
                                 self.admin.viewAllStudents()
                             case "si":
-                                print(f"{YELLOW}{indent}Student List based on ID{RESET}")
+                                print(f"{YELLOW}{indent2}Student List based on ID{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "sn":
-                                print(f"{YELLOW}{indent}Student List based on name{RESET}")
+                                print(f"{YELLOW}{indent2}Student List based on name{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "se":
-                                print(f"{YELLOW}{indent}Student List based on Email{RESET}")
+                                print(f"{YELLOW}{indent2}Student List based on Email{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "x":
                                 break
