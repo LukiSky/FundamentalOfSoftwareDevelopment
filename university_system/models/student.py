@@ -39,7 +39,7 @@ class Student:
 
     def login_gui(self, email, password):
         if len(email) == 0 or len(password) == 0:
-            raise LoginError(f"{RED}Please complete all required fields{RESET}")
+            raise LoginError(f"Please complete all required fields")
         
         elif not self.checkPasswordEmailFormat(password, email):
             raise ValidationError()
@@ -49,7 +49,7 @@ class Student:
                 print(f"{indent}Welcome, {student['name']}!")              
                 return student["id"]
 
-        raise LoginError(f"{RED}Student does not exist{RESET}") 
+        raise LoginError(f"Student does not exist") 
 
 
     def check_valid_student(self, email, password):
