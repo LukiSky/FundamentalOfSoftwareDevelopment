@@ -46,13 +46,13 @@ class AdminController(UserController):
                                 print(f"{YELLOW}{indent}Student List{RESET}")
                                 self.admin.viewAllStudents()
                             case "si":
-                                print(f"{YELLOW}{indent}Student List base on ID{RESET}")
+                                print(f"{YELLOW}{indent}Student List based on ID{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "sn":
-                                print(f"{YELLOW}{indent}Student List base on name{RESET}")
+                                print(f"{YELLOW}{indent}Student List based on name{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "se":
-                                print(f"{YELLOW}{indent}Student List base on Email{RESET}")
+                                print(f"{YELLOW}{indent}Student List based on Email{RESET}")
                                 self.admin.sortStudent(choice2)
                             case "x":
                                 break

@@ -82,12 +82,12 @@ class Admin:
             print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
     
     def sortStudent(self, typeOfSort):
-        print(f"Test:{typeOfSort}")
+        # print(f"Test:{typeOfSort}")
         typeOfSort = typeOfSort.lower()
         
         def sort_by_id(e): return e['id']
-        def sort_by_email(e): return e['email']
-        def sort_by_name(e): return e['name']
+        def sort_by_email(e): return e['email'].lower()
+        def sort_by_name(e): return e['name'].lower()
         
         if self.checkStudentEmpty():
             return
