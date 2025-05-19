@@ -88,10 +88,11 @@ class Student:
         existing_ids = {student["id"] for student in self.students}
         new_id = f"{random.randint(1, 999999):06d}"
         
-        if new_id not in existing_ids:
-            print(f"{YELLOW}{indent}Enrolling Student {name}{RESET}")
-            new_student = StudentEntity(new_id, name, email, password)
-            self.save_student(new_student.get_student_json())
+        while new_id in existing_ids:
+            new_id = f"{random.randint(1, 999999):06d}"
+        print(f"{YELLOW}{indent}Enrolling Student {name}{RESET}")
+        new_student = StudentEntity(new_id, name, email, password)
+        self.save_student(new_student.get_student_json())
 
     def get_student_json(self):
         return {
