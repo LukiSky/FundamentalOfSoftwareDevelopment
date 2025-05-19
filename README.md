@@ -1,5 +1,3 @@
-@ -1,182 +1,136 @@
-
 # University Self-Enrolment System
 
 **Self-Enrolment CLI & GUI Application for University Coursework Management**
@@ -47,9 +45,9 @@ _For the full backlog, see **Assessment 1 - Part 1 - Submission - Group2-Cmp1-La
 
 This system follows an MVC-like structure:
 
-- **Models** (`university_system/models`): Defines `Student`, `Subject`, and `Admin` entities.
+- **Models** (`university_system/models`): Encapsulate business logic for enrolment and administration.
 - **Database Layer** (`university_system/database.py`): Handles reading/writing to `data/students.data`.
-- **Controllers** (`SubjectController`, etc.): Encapsulate business logic for enrolment and administration.
+- **Controllers** (`SubjectController`, etc.): Handles user input and coordinates between the user input and the data.
 - **CLI Entry Point** (`main.py`): Launches the text-based menus for University, Student, and Admin.
 - **GUI Entry Point** (`main_gui.py`): Launches GUI Login window.
 - **GUI Modules** (`gui_login.py`, `gui_home.py`, `gui_enrol.py`, `gui_subject.py`): Build the Tkinter windows for user interaction.
@@ -127,5 +125,5 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Acknowledgments
 
-- Developed by **Team Group2-Cmp1-Lab 07 - Lucky Luki, Lia, Yeojin, Rob**
+- Developed by **Team Group2-Cmp1-Lab 07 - Lucky Luki, Soyeon(Lia), Yeojin, Rob**
 - Inspired by and a special thanks to Tausif.
