@@ -32,7 +32,7 @@ class University:
         pattern = r'^[a-zA-Z0-9._%+-]+@university\.com$'
         return bool(re.match(pattern, email))
     
-    def calcGrade(mark):
+    def calc_grade(mark):
         if mark >= 85:
             return "HD"
         elif mark >= 75:

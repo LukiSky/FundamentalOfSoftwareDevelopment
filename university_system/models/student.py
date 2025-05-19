@@ -23,7 +23,7 @@ class Student:
             email = input(f"{indent}Email: ")
             password = input(f"{indent}Password: ")
 
-            if not self.checkPasswordEmailFormat(password, email):
+            if not self.check_password_email_format(password, email):
                 raise ValidationError()
             
             print(f"{YELLOW}{indent}email and password formats acceptable{RESET}")
@@ -41,7 +41,7 @@ class Student:
         if len(email) == 0 or len(password) == 0:
             raise LoginError(f"Please complete all required fields")
         
-        elif not self.checkPasswordEmailFormat(password, email):
+        elif not self.check_password_email_format(password, email):
             raise ValidationError()
 
         for student in self.students:
@@ -59,7 +59,7 @@ class Student:
             else:
                 return False           
     
-    def checkPasswordEmailFormat(self, password, email):
+    def check_password_email_format(self, password, email):
         from university_system.university import University
         university = University()
       
@@ -75,7 +75,7 @@ class Student:
         email = input(f"{indent}Email: ")
         password = input(f"{indent}Password: ")
 
-        if not self.checkPasswordEmailFormat(password, email):
+        if not self.check_password_email_format(password, email):
             raise ValidationError()
         
         print(f"{YELLOW}{indent}email and password formats acceptable{RESET}")
@@ -93,11 +93,3 @@ class Student:
         print(f"{YELLOW}{indent}Enrolling Student {name}{RESET}")
         new_student = StudentEntity(new_id, name, email, password)
         self.save_student(new_student.get_student_json())
-
-    def get_student_json(self):
-        return {
-            "id": self.id,
-            "name": self.name,
-            "email": self.email,
-            "password": self.password
-        }

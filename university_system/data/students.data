@@ -102,5 +102,23 @@
                 "grade": "C"
             }
         ]
+    },
+    {
+        "id": "955635",
+        "name": "Donny",
+        "email": "Donny@university.com",
+        "password": "Donny123",
+        "subjects": [
+            {
+                "id": "290",
+                "mark": 99,
+                "grade": "HD"
+            },
+            {
+                "id": "259",
+                "mark": 34,
+                "grade": "Z"
+            }
+        ]
     }
 ]

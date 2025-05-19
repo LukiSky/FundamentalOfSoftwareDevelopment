@@ -29,7 +29,7 @@ class Admin:
         subjects = student.get("subjects", [])
         marks = [sub.get("mark", 0) for sub in subjects]
         avg = sum(marks) / len(marks) if marks else 0
-        grade = University.calcGrade(avg)
+        grade = University.calc_grade(avg)
         return grade, avg
 
     def organizeByGrade(self):
@@ -79,7 +79,7 @@ class Admin:
         students = Database.load_data()
         
         for s in students:
-            print(f"{indent}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
+            print(f"{indent2}{s['name']:<10} :: {s['id']} --> Email: {s['email']}")
     
     def sortStudent(self, typeOfSort):
         # print(f"Test:{typeOfSort}")

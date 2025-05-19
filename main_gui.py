@@ -14,6 +14,5 @@ root.geometry(f"{screen_width}x{screen_height}")
 
 model = Student()
 box = LoginFrame(root, model)
-# box.pack( fill="both")
 
 root.mainloop()
