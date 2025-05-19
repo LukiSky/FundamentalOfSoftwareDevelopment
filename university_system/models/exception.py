@@ -12,5 +12,5 @@ class LoginError(ValueError):
     pass
 
 class ValidationError(ValueError):
-    def __init__(self, message= RED + "Incorrect email or password format " + RESET):
+    def __init__(self, message= RED + "Incorrect email or password formats" + RESET):
         super().__init__(message)

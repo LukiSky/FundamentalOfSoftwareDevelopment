@@ -33,7 +33,7 @@ class Student:
             password = input(f"{indent}Password: ")
 
             if not self.checkPasswordEmailFormat(password, email):
-                raise ValidationError(f"{RED}Incorrect email or password forma{RESET}")
+                raise ValidationError()
             
             print(f"{YELLOW}{indent}email and password formats acceptable{RESET}")
 
