@@ -51,6 +51,7 @@ This system follows an MVC-like structure:
 - **Database Layer** (`university_system/database.py`): Handles reading/writing to `data/students.data`.
 - **Controllers** (`SubjectController`, etc.): Encapsulate business logic for enrolment and administration.
 - **CLI Entry Point** (`main.py`): Launches the text-based menus for University, Student, and Admin.
+- **GUI Entry Point** (`main_gui.py`): Launches GUI Login window.
 - **GUI Modules** (`gui_login.py`, `gui_home.py`, `gui_enrol.py`, `gui_subject.py`): Build the Tkinter windows for user interaction.
 
 ## Installation
