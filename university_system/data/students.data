@@ -6,11 +6,6 @@
         "password": "Johny123",
         "subjects": [
             {
-                "id": "954",
-                "mark": 59,
-                "grade": "P"
-            },
-            {
                 "id": "261",
                 "mark": 62,
                 "grade": "P"
@@ -79,5 +74,33 @@
         "name": "Hendry",
         "email": "Hendry@university.com",
         "password": "Tonny123"
+    },
+    {
+        "id": "395462",
+        "name": "Lia",
+        "email": "Lia@university.com",
+        "password": "Liaaa123",
+        "subjects": [
+            {
+                "id": "031",
+                "mark": 94,
+                "grade": "HD"
+            },
+            {
+                "id": "543",
+                "mark": 49,
+                "grade": "Z"
+            },
+            {
+                "id": "628",
+                "mark": 74,
+                "grade": "C"
+            },
+            {
+                "id": "865",
+                "mark": 68,
+                "grade": "C"
+            }
+        ]
     }
 ]

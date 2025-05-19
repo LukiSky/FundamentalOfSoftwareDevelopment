@@ -1,19 +1,7 @@
 from university_system.controllers.user_controller import UserController
-from university_system.models.database import Database
 from university_system.utils.utils import *
-from university_system.models.exception import LoginError, ValidationError
 from university_system.models.student import Student
-
-### Color Controls ###
-
-RESET  = "\033[0m"
-RED    = "\033[31m"
-GREEN  = "\033[32m"
-YELLOW = "\033[33m"
-CYAN   = "\033[36m"
-
-####
-
+from university_system.utils.color import *
 
 class StudentController(UserController):
     def __init__(self):
@@ -30,7 +18,7 @@ class StudentController(UserController):
                             self.students.login()
                             break
                         except ValueError as e:
-                            print(f"{indent}{e}")
+                            print(f"{RED}{indent}{e}{RESET}")
                 case "r":
                     print(f"{GREEN}{indent}Student Sign Up{RESET}")
                     while True:
@@ -38,7 +26,7 @@ class StudentController(UserController):
                             self.students.register()
                             break
                         except ValueError as e:
-                            print(f"{indent}{e}")
+                            print(f"{RED}{indent}{e}{RESET}")
                 case "x":
                     break
                 case _:

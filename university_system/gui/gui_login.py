@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from university_system.gui.AlertView import AlertView
+from university_system.gui.alert_view import AlertView
 from university_system.gui.gui_home import HomeFrame
 from university_system.models.student import Student
 

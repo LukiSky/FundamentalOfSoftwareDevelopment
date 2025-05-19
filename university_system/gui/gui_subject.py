@@ -1,5 +1,5 @@
 import tkinter as tk
-from university_system.controllers.subject_controller import SubjectController
+from university_system.models.subject import Subject
 
 class SubjectFrame(tk.Tk):
     def __init__(self, student_id):
@@ -11,9 +11,9 @@ class SubjectFrame(tk.Tk):
         self.geometry(f"{screen_width}x{screen_height}")
 
         self.student_id = str(student_id)
-        self.subject_controller = SubjectController(self.student_id)
+        self.subject = Subject(self.student_id)
 
-        total_enrolled_cnt = len(self.subject_controller.load_subjects())
+        total_enrolled_cnt = len(self.subject.load_subjects())
 
         title_label = tk.Label(self, text="Current Enrolments", font=("Helvetica", 28, "bold"))
         title_label.pack(pady=(30, 10))
@@ -24,7 +24,7 @@ class SubjectFrame(tk.Tk):
         subject_box = tk.LabelFrame(self, text="Enroled Subjects", padx=40, pady=30, font=("Helvetica", 20, "bold"))
         subject_box.pack(padx=40, pady=50, fill="both", expand=True)
 
-        for s in self.subject_controller.load_subjects():
+        for s in self.subject.load_subjects():
             label_text = f"Subject ID: {s.id} | Mark: {s.mark} | Grade: {s.grade}"
             tk.Label(subject_box, text=label_text, anchor="w", font=("Helvetica", 18)).pack(fill='x', padx=10, pady=6)
 

@@ -4,16 +4,7 @@ from university_system.utils.utils import *
 from university_system.controllers.subject_controller import SubjectController
 from university_system.models.exception import LoginError, ValidationError
 from university_system.models.database import Database
-
-### Color Controls ###
-
-RESET  = "\033[0m"
-RED    = "\033[31m"
-GREEN  = "\033[32m"
-YELLOW = "\033[33m"
-CYAN   = "\033[36m"
-
-####
+from university_system.utils.color import *
 
 class Student:
     def __init__(self):
@@ -44,7 +35,7 @@ class Student:
                     subject_controller.menu()
                     return
                 
-            raise LoginError(f"{RED}{indent}Student does not exist{RESET}")
+            raise LoginError("Student does not exist")
 
     def login_gui(self, email, password):
         if len(email) == 0 or len(password) == 0:
@@ -91,7 +82,7 @@ class Student:
 
         for student in self.students:
             if student["email"] == email:
-                raise LoginError(f"{RED}Student {student['name']} already exists.{RESET}")
+                raise LoginError(f"Student {student['name']} already exists")
 
         name = input(f"{indent}Name: ")
         existing_ids = {student["id"] for student in self.students}

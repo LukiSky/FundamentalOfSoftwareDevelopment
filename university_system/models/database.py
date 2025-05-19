@@ -1,19 +1,10 @@
 import json
 import os
 from university_system.utils.utils import *
-
-### Color Controls ###
-
-RESET  = "\033[0m"
-RED    = "\033[31m"
-GREEN  = "\033[32m"
-YELLOW = "\033[33m"
-CYAN   = "\033[36m"
-
-####
+from university_system.utils.color import *
 
 class Database:
-    DATA_FILE = "FundamentalOfSoftwareDevelopment/university_system/data/students.data"
+    DATA_FILE = "university_system/data/students.data"
 
 
     @staticmethod
